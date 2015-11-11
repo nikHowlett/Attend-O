@@ -1,0 +1,47 @@
+//
+//  ViewController.swift
+//  attendo1
+//
+//  Created by Nik Howlett on 11/7/15.
+//  Copyright (c) 2015 NikHowlett. All rights reserved.
+//
+
+import UIKit
+import UIKit
+import CoreData
+import QuartzCore
+//AVCaptureMetadataOutputObjectsDelegate
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var LoginButton: UIButton!
+    
+    @IBOutlet weak var TeacherStudent: UISwitch!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    @IBAction func Login(sender: AnyObject) {
+        if TeacherStudent.on {
+            self.performSegueWithIdentifier("teacherLogin", sender: self)
+        } else {
+            self.performSegueWithIdentifier("studentLogin", sender: self)
+        }
+    }
+    
+    func DismissKeyboard(){
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+
+}
+

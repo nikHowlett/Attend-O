@@ -1,0 +1,498 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		861EFCF81BEE6DAD000085F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861EFCF71BEE6DAD000085F0 /* AppDelegate.swift */; };
+		861EFCFB1BEE6DAD000085F0 /* attendo1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 861EFCF91BEE6DAD000085F0 /* attendo1.xcdatamodeld */; };
+		861EFCFD1BEE6DAD000085F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861EFCFC1BEE6DAD000085F0 /* ViewController.swift */; };
+		861EFD001BEE6DAE000085F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 861EFCFE1BEE6DAE000085F0 /* Main.storyboard */; };
+		861EFD021BEE6DAE000085F0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 861EFD011BEE6DAE000085F0 /* Images.xcassets */; };
+		861EFD051BEE6DAE000085F0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 861EFD031BEE6DAE000085F0 /* LaunchScreen.xib */; };
+		861EFD111BEE6DAF000085F0 /* attendo1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861EFD101BEE6DAF000085F0 /* attendo1Tests.swift */; };
+		861EFD1F1BEE7783000085F0 /* qrcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861EFD1E1BEE7783000085F0 /* qrcode.swift */; };
+		861EFD211BEE7E2D000085F0 /* ProfessorPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861EFD201BEE7E2D000085F0 /* ProfessorPanel.swift */; };
+		861EFD231BEE7F12000085F0 /* AddClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861EFD221BEE7F12000085F0 /* AddClass.swift */; };
+		861EFD261BEE8411000085F0 /* EditClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861EFD251BEE8411000085F0 /* EditClass.swift */; };
+		861EFD281BEE8A02000085F0 /* Class2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861EFD271BEE8A02000085F0 /* Class2.swift */; };
+		86583B4A1BF06C8C0027FD19 /* AddClass2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86583B491BF06C8C0027FD19 /* AddClass2.swift */; };
+		86583B501BF2AF5C0027FD19 /* YouveAttendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86583B4F1BF2AF5C0027FD19 /* YouveAttendedViewController.swift */; };
+		86583B521BF2B8D80027FD19 /* SelectClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86583B511BF2B8D80027FD19 /* SelectClassViewController.swift */; };
+		86583B561BF2C18E0027FD19 /* 8396746.png in Resources */ = {isa = PBXBuildFile; fileRef = 86583B531BF2C18E0027FD19 /* 8396746.png */; };
+		86583B571BF2C18E0027FD19 /* C6Eq0.png in Resources */ = {isa = PBXBuildFile; fileRef = 86583B541BF2C18E0027FD19 /* C6Eq0.png */; };
+		86583B581BF2C18E0027FD19 /* 368px-QR_Code_Example.svg.png in Resources */ = {isa = PBXBuildFile; fileRef = 86583B551BF2C18E0027FD19 /* 368px-QR_Code_Example.svg.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		861EFD0B1BEE6DAE000085F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 861EFCEA1BEE6DAA000085F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 861EFCF11BEE6DAB000085F0;
+			remoteInfo = attendo1;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		861EFCF21BEE6DAB000085F0 /* attendo1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = attendo1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		861EFCF61BEE6DAC000085F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		861EFCF71BEE6DAD000085F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		861EFCFA1BEE6DAD000085F0 /* attendo1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = attendo1.xcdatamodel; sourceTree = "<group>"; };
+		861EFCFC1BEE6DAD000085F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		861EFCFF1BEE6DAE000085F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		861EFD011BEE6DAE000085F0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		861EFD041BEE6DAE000085F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		861EFD0A1BEE6DAE000085F0 /* attendo1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = attendo1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		861EFD0F1BEE6DAF000085F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		861EFD101BEE6DAF000085F0 /* attendo1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = attendo1Tests.swift; sourceTree = "<group>"; };
+		861EFD1E1BEE7783000085F0 /* qrcode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = qrcode.swift; sourceTree = "<group>"; };
+		861EFD201BEE7E2D000085F0 /* ProfessorPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorPanel.swift; sourceTree = "<group>"; };
+		861EFD221BEE7F12000085F0 /* AddClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClass.swift; sourceTree = "<group>"; };
+		861EFD251BEE8411000085F0 /* EditClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditClass.swift; sourceTree = "<group>"; };
+		861EFD271BEE8A02000085F0 /* Class2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class2.swift; sourceTree = "<group>"; };
+		86583B491BF06C8C0027FD19 /* AddClass2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClass2.swift; sourceTree = "<group>"; };
+		86583B4F1BF2AF5C0027FD19 /* YouveAttendedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouveAttendedViewController.swift; sourceTree = "<group>"; };
+		86583B511BF2B8D80027FD19 /* SelectClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectClassViewController.swift; sourceTree = "<group>"; };
+		86583B531BF2C18E0027FD19 /* 8396746.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 8396746.png; path = ../8396746.png; sourceTree = "<group>"; };
+		86583B541BF2C18E0027FD19 /* C6Eq0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = C6Eq0.png; path = ../C6Eq0.png; sourceTree = "<group>"; };
+		86583B551BF2C18E0027FD19 /* 368px-QR_Code_Example.svg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "368px-QR_Code_Example.svg.png"; path = "../368px-QR_Code_Example.svg.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		861EFCEF1BEE6DAB000085F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		861EFD071BEE6DAE000085F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		861EFCE91BEE6DAA000085F0 = {
+			isa = PBXGroup;
+			children = (
+				861EFCF41BEE6DAB000085F0 /* attendo1 */,
+				861EFD0D1BEE6DAE000085F0 /* attendo1Tests */,
+				861EFCF31BEE6DAB000085F0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		861EFCF31BEE6DAB000085F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				861EFCF21BEE6DAB000085F0 /* attendo1.app */,
+				861EFD0A1BEE6DAE000085F0 /* attendo1Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		861EFCF41BEE6DAB000085F0 /* attendo1 */ = {
+			isa = PBXGroup;
+			children = (
+				861EFCF71BEE6DAD000085F0 /* AppDelegate.swift */,
+				861EFCFC1BEE6DAD000085F0 /* ViewController.swift */,
+				861EFD251BEE8411000085F0 /* EditClass.swift */,
+				861EFD271BEE8A02000085F0 /* Class2.swift */,
+				861EFD1E1BEE7783000085F0 /* qrcode.swift */,
+				86583B4F1BF2AF5C0027FD19 /* YouveAttendedViewController.swift */,
+				86583B511BF2B8D80027FD19 /* SelectClassViewController.swift */,
+				861EFD221BEE7F12000085F0 /* AddClass.swift */,
+				86583B491BF06C8C0027FD19 /* AddClass2.swift */,
+				861EFD201BEE7E2D000085F0 /* ProfessorPanel.swift */,
+				861EFCFE1BEE6DAE000085F0 /* Main.storyboard */,
+				861EFD011BEE6DAE000085F0 /* Images.xcassets */,
+				861EFD031BEE6DAE000085F0 /* LaunchScreen.xib */,
+				861EFCF91BEE6DAD000085F0 /* attendo1.xcdatamodeld */,
+				861EFCF51BEE6DAB000085F0 /* Supporting Files */,
+			);
+			path = attendo1;
+			sourceTree = "<group>";
+		};
+		861EFCF51BEE6DAB000085F0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				86583B531BF2C18E0027FD19 /* 8396746.png */,
+				86583B541BF2C18E0027FD19 /* C6Eq0.png */,
+				86583B551BF2C18E0027FD19 /* 368px-QR_Code_Example.svg.png */,
+				861EFCF61BEE6DAC000085F0 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		861EFD0D1BEE6DAE000085F0 /* attendo1Tests */ = {
+			isa = PBXGroup;
+			children = (
+				861EFD101BEE6DAF000085F0 /* attendo1Tests.swift */,
+				861EFD0E1BEE6DAF000085F0 /* Supporting Files */,
+			);
+			path = attendo1Tests;
+			sourceTree = "<group>";
+		};
+		861EFD0E1BEE6DAF000085F0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				861EFD0F1BEE6DAF000085F0 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		861EFCF11BEE6DAB000085F0 /* attendo1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 861EFD141BEE6DAF000085F0 /* Build configuration list for PBXNativeTarget "attendo1" */;
+			buildPhases = (
+				861EFCEE1BEE6DAB000085F0 /* Sources */,
+				861EFCEF1BEE6DAB000085F0 /* Frameworks */,
+				861EFCF01BEE6DAB000085F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = attendo1;
+			productName = attendo1;
+			productReference = 861EFCF21BEE6DAB000085F0 /* attendo1.app */;
+			productType = "com.apple.product-type.application";
+		};
+		861EFD091BEE6DAE000085F0 /* attendo1Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 861EFD171BEE6DAF000085F0 /* Build configuration list for PBXNativeTarget "attendo1Tests" */;
+			buildPhases = (
+				861EFD061BEE6DAE000085F0 /* Sources */,
+				861EFD071BEE6DAE000085F0 /* Frameworks */,
+				861EFD081BEE6DAE000085F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				861EFD0C1BEE6DAE000085F0 /* PBXTargetDependency */,
+			);
+			name = attendo1Tests;
+			productName = attendo1Tests;
+			productReference = 861EFD0A1BEE6DAE000085F0 /* attendo1Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		861EFCEA1BEE6DAA000085F0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 0710;
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = NikHowlett;
+				TargetAttributes = {
+					861EFCF11BEE6DAB000085F0 = {
+						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = L8BNC6Y6Z3;
+					};
+					861EFD091BEE6DAE000085F0 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 861EFCF11BEE6DAB000085F0;
+					};
+				};
+			};
+			buildConfigurationList = 861EFCED1BEE6DAA000085F0 /* Build configuration list for PBXProject "attendo1" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 861EFCE91BEE6DAA000085F0;
+			productRefGroup = 861EFCF31BEE6DAB000085F0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				861EFCF11BEE6DAB000085F0 /* attendo1 */,
+				861EFD091BEE6DAE000085F0 /* attendo1Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		861EFCF01BEE6DAB000085F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86583B581BF2C18E0027FD19 /* 368px-QR_Code_Example.svg.png in Resources */,
+				861EFD001BEE6DAE000085F0 /* Main.storyboard in Resources */,
+				86583B561BF2C18E0027FD19 /* 8396746.png in Resources */,
+				861EFD051BEE6DAE000085F0 /* LaunchScreen.xib in Resources */,
+				86583B571BF2C18E0027FD19 /* C6Eq0.png in Resources */,
+				861EFD021BEE6DAE000085F0 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		861EFD081BEE6DAE000085F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		861EFCEE1BEE6DAB000085F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				861EFCFD1BEE6DAD000085F0 /* ViewController.swift in Sources */,
+				861EFD1F1BEE7783000085F0 /* qrcode.swift in Sources */,
+				861EFD231BEE7F12000085F0 /* AddClass.swift in Sources */,
+				861EFCF81BEE6DAD000085F0 /* AppDelegate.swift in Sources */,
+				86583B501BF2AF5C0027FD19 /* YouveAttendedViewController.swift in Sources */,
+				861EFD281BEE8A02000085F0 /* Class2.swift in Sources */,
+				86583B521BF2B8D80027FD19 /* SelectClassViewController.swift in Sources */,
+				861EFD261BEE8411000085F0 /* EditClass.swift in Sources */,
+				86583B4A1BF06C8C0027FD19 /* AddClass2.swift in Sources */,
+				861EFD211BEE7E2D000085F0 /* ProfessorPanel.swift in Sources */,
+				861EFCFB1BEE6DAD000085F0 /* attendo1.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		861EFD061BEE6DAE000085F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				861EFD111BEE6DAF000085F0 /* attendo1Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		861EFD0C1BEE6DAE000085F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 861EFCF11BEE6DAB000085F0 /* attendo1 */;
+			targetProxy = 861EFD0B1BEE6DAE000085F0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		861EFCFE1BEE6DAE000085F0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				861EFCFF1BEE6DAE000085F0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		861EFD031BEE6DAE000085F0 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				861EFD041BEE6DAE000085F0 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		861EFD121BEE6DAF000085F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		861EFD131BEE6DAF000085F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		861EFD151BEE6DAF000085F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = attendo1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		861EFD161BEE6DAF000085F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = attendo1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		861EFD181BEE6DAF000085F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = attendo1Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/attendo1.app/attendo1";
+			};
+			name = Debug;
+		};
+		861EFD191BEE6DAF000085F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = attendo1Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/attendo1.app/attendo1";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		861EFCED1BEE6DAA000085F0 /* Build configuration list for PBXProject "attendo1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				861EFD121BEE6DAF000085F0 /* Debug */,
+				861EFD131BEE6DAF000085F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		861EFD141BEE6DAF000085F0 /* Build configuration list for PBXNativeTarget "attendo1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				861EFD151BEE6DAF000085F0 /* Debug */,
+				861EFD161BEE6DAF000085F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		861EFD171BEE6DAF000085F0 /* Build configuration list for PBXNativeTarget "attendo1Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				861EFD181BEE6DAF000085F0 /* Debug */,
+				861EFD191BEE6DAF000085F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		861EFCF91BEE6DAD000085F0 /* attendo1.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				861EFCFA1BEE6DAD000085F0 /* attendo1.xcdatamodel */,
+			);
+			currentVersion = 861EFCFA1BEE6DAD000085F0 /* attendo1.xcdatamodel */;
+			path = attendo1.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 861EFCEA1BEE6DAA000085F0 /* Project object */;
+}
