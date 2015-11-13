@@ -6,13 +6,25 @@
 //  Copyright © 2015 NikHowlett. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import CoreData
+import QuartzCore
+import MessageUI
 
-class SelectClassViewController: UIViewController {
+class SelectClassViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var qrImage: UIImageView!
     
+    var classNameSent : String = ""
+    
+    var dateTimeSent : NSDate = NSDate()
+    
+    var classObjSent: Class2 = Class2()
+    
     var counter = 0
+    
+    var filestring : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +55,12 @@ class SelectClassViewController: UIViewController {
     */
     
     @IBAction func emwil(sender: AnyObject) {
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
     }
     
     @IBAction func newQR(sender: AnyObject) {
@@ -57,6 +75,48 @@ class SelectClassViewController: UIViewController {
         } else if counter == 2 {
             qrImage.image = UIImage(named:"8396746.png")
         }
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        sendMailErrorAlert.show()
+    }
+    
+    /*func getAttachmentPath() -> String{
+        let attachmentFileName = filestring
+        let attachmentPath = NSTemporaryDirectory().stringByAppendingPathComponent(attachmentFileName)
+        return attachmentPath
+    }*/
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        let resip = ["abowd"]
+        mailComposerVC.setToRecipients(resip)
+        mailComposerVC.setSubject("Attend-O Auto-Generated QR Code")
+        let jenkins = "For Class \(classNameSent) at time \(dateTimeSent)"
+        var body: String = "<html><body>For Class \(classNameSent) at time \(dateTimeSent) QR code below<br/>"
+        if let imageData2 = UIImageJPEGRepresentation(qrImage.image!, 0.0) {
+            let base64String2: String = imageData2.base64EncodedStringWithOptions(NSDataBase64EncodingOptions())
+            body = body + "<div><img src='data:image/png;base64,\(base64String2)' height='100' width='150'/></div>"
+        }
+        if let imageData = UIImagePNGRepresentation(qrImage.image!)
+            // Get the image from ImageView and convert to NSData
+        {
+            let base64String: String = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions())
+            body = body + "<div><img src='data:image/png;base64,\(base64String)' height='100' width='150'/></div>"
+        }
+        body = body + "</body></html>"
+        mailComposerVC.setToRecipients(["attendo3750@gmail.com"])
+        mailComposerVC.setMessageBody(body, isHTML: true)
+
+        //mailComposerVC.setMessageBody("\(jenkins)", isHTML: false)
+        return mailComposerVC
     }
 
 }

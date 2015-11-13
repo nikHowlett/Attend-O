@@ -47,6 +47,10 @@ class qrcode: UIViewController,UIImagePickerControllerDelegate, UINavigationCont
         }
     }
     
+    @IBAction func SendAttend(sender: AnyObject) {
+        self.performSegueWithIdentifier("youveAttended", sender: self)
+    }
+    
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }

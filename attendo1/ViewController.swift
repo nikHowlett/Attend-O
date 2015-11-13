@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var TeacherStudent: UISwitch!
     
+    @IBOutlet weak var usernametextfield: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -31,16 +33,26 @@ class ViewController: UIViewController {
     }
 
     @IBAction func Login(sender: AnyObject) {
-        if TeacherStudent.on {
-            self.performSegueWithIdentifier("teacherLogin", sender: self)
+        if usernametextfield.text == "abowd" {
+             self.performSegueWithIdentifier("teacherLogin", sender: self)
         } else {
             self.performSegueWithIdentifier("studentLogin", sender: self)
         }
+        /*if TeacherStudent.on {
+            self.performSegueWithIdentifier("teacherLogin", sender: self)
+        } else {
+            self.performSegueWithIdentifier("studentLogin", sender: self)
+        }*/
     }
     
     func DismissKeyboard(){
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
+    }
+    
+    //pragma mark - Unwind Seques
+    @IBAction func unwindToVC(segue: UIStoryboardSegue) {
+        print("Called goToSideMenu: unwind action")
     }
 
 }

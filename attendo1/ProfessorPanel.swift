@@ -19,6 +19,14 @@ class ProfessorPanel: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBOutlet weak var classPicker: UIPickerView!
     
+    var pickerSelectedClassName: String = String()
+    
+    var curRow: Int = Int()
+    
+    var pickerSelectedClassDate: NSDate = NSDate()
+    
+    var pickerSelectedClassObj: NSManagedObject = NSManagedObject()
+    
     var backupData: [String] = [String]()
     
     var classes : [Class2] = [Class2]()
@@ -77,12 +85,17 @@ class ProfessorPanel: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if classes.count > 0 {
+            pickerSelectedClassName = classes[row].courseName
+            pickerSelectedClassDate = classes[row].startTime
+            curRow = row
+            //pickerSelectedClassObj = classes[row]
             return classes[row].courseName
         } else {
             return backupData[row]
         }
         
     }
+    
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if classes.count > 0 {
             string.text = classes[row].courseName
@@ -91,8 +104,29 @@ class ProfessorPanel: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
     }
     
+    @IBAction func editClassButtPress(sender: AnyObject) {
+        performSegueWithIdentifier("editClass", sender: self)
+    }
+    
     @IBAction func signOut(sender: AnyObject) {
-        
+        performSegueWithIdentifier("unwindToHome", sender: self)
+        performSegueWithIdentifier("unwindToHome2", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "editClass") {
+            let svc = segue.destinationViewController as! EditViewController
+            svc.classNameSent = pickerSelectedClassName
+            svc.dateTimeSent = pickerSelectedClassDate
+            //svc.classObjSent = pickerSelectedClassObj
+            //svc.classObjSent = (classes[curRow] as? NSManagedObject)!
+        }
+        if (segue.identifier == "selectClass") {
+            let svc = segue.destinationViewController as! SelectClassViewController
+            svc.classNameSent = pickerSelectedClassName
+            svc.dateTimeSent = pickerSelectedClassDate
+            //svc.classObjSent = classes[curRow]
+        }
     }
     
     @IBAction func unwindToVC(segue: UIStoryboardSegue) {
@@ -102,5 +136,8 @@ class ProfessorPanel: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             alert.addButtonWithTitle("Ok")
             alert.show()
             print("test")
+        if let redViewController = segue.sourceViewController as? ProfessorPanel {
+            print("Coming from RED")
+        }
     }
 }

@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import UIKit
 import CoreData
 import QuartzCore
 
@@ -79,7 +78,7 @@ class AddClass: UIViewController {
         } else {
             // Fallback on earlier versions
         }
-        localNotification.alertBody = "Class is starting, time to take attendance!"
+        localNotification.alertBody = "Class \(nameOutlet.text!) is starting, time to take attendance!"
         localNotification.alertAction = "Generate QR"
         if #available(iOS 8.0, *) {
             localNotification.category = "classCategory"
@@ -106,6 +105,5 @@ class AddClass: UIViewController {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-    
     
 }
