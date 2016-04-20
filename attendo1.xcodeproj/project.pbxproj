@@ -44,7 +44,17 @@
 		86583B561BF2C18E0027FD19 /* 8396746.png in Resources */ = {isa = PBXBuildFile; fileRef = 86583B531BF2C18E0027FD19 /* 8396746.png */; };
 		86583B571BF2C18E0027FD19 /* C6Eq0.png in Resources */ = {isa = PBXBuildFile; fileRef = 86583B541BF2C18E0027FD19 /* C6Eq0.png */; };
 		86583B581BF2C18E0027FD19 /* 368px-QR_Code_Example.svg.png in Resources */ = {isa = PBXBuildFile; fileRef = 86583B551BF2C18E0027FD19 /* 368px-QR_Code_Example.svg.png */; };
+		868584BE1CB6C63800E11A71 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868584BD1CB6C63800E11A71 /* TableViewCell.swift */; };
+		868584C01CB8015200E11A71 /* NewTeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868584BF1CB8015200E11A71 /* NewTeechViewController.swift */; };
+		868584C21CB822CF00E11A71 /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868584C11CB822CF00E11A71 /* secondViewController.swift */; };
+		868584C41CB83CA200E11A71 /* viewStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868584C31CB83CA200E11A71 /* viewStudentViewController.swift */; };
+		868584C61CBAF2C000E11A71 /* newStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868584C51CBAF2BF00E11A71 /* newStudentViewController.swift */; };
+		868584C81CBAF9B600E11A71 /* studentCalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868584C71CBAF9B600E11A71 /* studentCalViewController.swift */; };
+		868584CA1CBC073800E11A71 /* testAPIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868584C91CBC073800E11A71 /* testAPIViewController.swift */; };
 		868E10621BF523CA00EA7C65 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868E10611BF523CA00EA7C65 /* EditViewController.swift */; };
+		86D51E3F1CB47A6600B8EDA3 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E3E1CB47A6600B8EDA3 /* NewViewController.swift */; };
+		86D51E411CB47AC700B8EDA3 /* Classes in Resources */ = {isa = PBXBuildFile; fileRef = 86D51E401CB47AC700B8EDA3 /* Classes */; };
+		DFFA13B81D56A9BA32F08CA5 /* Pods_attendo1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7A81B0FFD628F3FBBBE1F0 /* Pods_attendo1.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C7A81B0FFD628F3FBBBE1F0 /* Pods_attendo1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_attendo1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		861EFCF21BEE6DAB000085F0 /* attendo1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = attendo1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		861EFCF61BEE6DAC000085F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		861EFCF71BEE6DAD000085F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,7 +110,18 @@
 		86583B531BF2C18E0027FD19 /* 8396746.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 8396746.png; path = ../8396746.png; sourceTree = "<group>"; };
 		86583B541BF2C18E0027FD19 /* C6Eq0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = C6Eq0.png; path = ../C6Eq0.png; sourceTree = "<group>"; };
 		86583B551BF2C18E0027FD19 /* 368px-QR_Code_Example.svg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "368px-QR_Code_Example.svg.png"; path = "../368px-QR_Code_Example.svg.png"; sourceTree = "<group>"; };
+		868584BD1CB6C63800E11A71 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		868584BF1CB8015200E11A71 /* NewTeechViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTeechViewController.swift; sourceTree = "<group>"; };
+		868584C11CB822CF00E11A71 /* secondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
+		868584C31CB83CA200E11A71 /* viewStudentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewStudentViewController.swift; sourceTree = "<group>"; };
+		868584C51CBAF2BF00E11A71 /* newStudentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newStudentViewController.swift; sourceTree = "<group>"; };
+		868584C71CBAF9B600E11A71 /* studentCalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = studentCalViewController.swift; sourceTree = "<group>"; };
+		868584C91CBC073800E11A71 /* testAPIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testAPIViewController.swift; sourceTree = "<group>"; };
 		868E10611BF523CA00EA7C65 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		86D51E3E1CB47A6600B8EDA3 /* NewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
+		86D51E401CB47AC700B8EDA3 /* Classes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Classes; sourceTree = "<group>"; };
+		8FE27EEDD2BCE13FC0F69822 /* Pods-attendo1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-attendo1.release.xcconfig"; path = "Pods/Target Support Files/Pods-attendo1/Pods-attendo1.release.xcconfig"; sourceTree = "<group>"; };
+		C72BCE6F5901B2E256CC0DBC /* Pods-attendo1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-attendo1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-attendo1/Pods-attendo1.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFFA13B81D56A9BA32F08CA5 /* Pods_attendo1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +143,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		367A70BD30ABFE3F003E416B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C72BCE6F5901B2E256CC0DBC /* Pods-attendo1.debug.xcconfig */,
+				8FE27EEDD2BCE13FC0F69822 /* Pods-attendo1.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		861EFCE91BEE6DAA000085F0 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +177,8 @@
 				861EFCF41BEE6DAB000085F0 /* attendo1 */,
 				861EFD0D1BEE6DAE000085F0 /* attendo1Tests */,
 				861EFCF31BEE6DAB000085F0 /* Products */,
+				367A70BD30ABFE3F003E416B /* Pods */,
+				A23C29D30A793736D23CBEF9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -163,14 +197,23 @@
 				861EFCF71BEE6DAD000085F0 /* AppDelegate.swift */,
 				861EFCFC1BEE6DAD000085F0 /* ViewController.swift */,
 				861EFD251BEE8411000085F0 /* EditClass.swift */,
+				868584C51CBAF2BF00E11A71 /* newStudentViewController.swift */,
 				868E10611BF523CA00EA7C65 /* EditViewController.swift */,
 				861EFD271BEE8A02000085F0 /* Class2.swift */,
+				868584C91CBC073800E11A71 /* testAPIViewController.swift */,
+				868584C71CBAF9B600E11A71 /* studentCalViewController.swift */,
+				868584C11CB822CF00E11A71 /* secondViewController.swift */,
 				861EFD1E1BEE7783000085F0 /* qrcode.swift */,
+				868584C31CB83CA200E11A71 /* viewStudentViewController.swift */,
+				86D51E3E1CB47A6600B8EDA3 /* NewViewController.swift */,
+				868584BF1CB8015200E11A71 /* NewTeechViewController.swift */,
+				868584BD1CB6C63800E11A71 /* TableViewCell.swift */,
 				86583B4F1BF2AF5C0027FD19 /* YouveAttendedViewController.swift */,
 				86583B511BF2B8D80027FD19 /* SelectClassViewController.swift */,
 				861EFD221BEE7F12000085F0 /* AddClass.swift */,
 				86583B491BF06C8C0027FD19 /* AddClass2.swift */,
 				861EFD201BEE7E2D000085F0 /* ProfessorPanel.swift */,
+				86D51E401CB47AC700B8EDA3 /* Classes */,
 				861EFCFE1BEE6DAE000085F0 /* Main.storyboard */,
 				861EFD011BEE6DAE000085F0 /* Images.xcassets */,
 				861EFD031BEE6DAE000085F0 /* LaunchScreen.xib */,
@@ -208,6 +251,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A23C29D30A793736D23CBEF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C7A81B0FFD628F3FBBBE1F0 /* Pods_attendo1.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -215,9 +266,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 861EFD141BEE6DAF000085F0 /* Build configuration list for PBXNativeTarget "attendo1" */;
 			buildPhases = (
+				0128D7717589F45D9C97B337 /* Check Pods Manifest.lock */,
 				861EFCEE1BEE6DAB000085F0 /* Sources */,
 				861EFCEF1BEE6DAB000085F0 /* Frameworks */,
 				861EFCF01BEE6DAB000085F0 /* Resources */,
+				2F584110337C93CF673A46B4 /* Embed Pods Frameworks */,
+				F55C6E6657C03FE1A2813917 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,7 +308,7 @@
 			attributes = {
 				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = NikHowlett;
 				TargetAttributes = {
 					861EFCF11BEE6DAB000085F0 = {
@@ -300,6 +354,7 @@
 				8634CF041BF59560001569D1 /* Icon-Small-40.png in Resources */,
 				861EFD001BEE6DAE000085F0 /* Main.storyboard in Resources */,
 				8634CF011BF59560001569D1 /* Icon-72@2x.png in Resources */,
+				86D51E411CB47AC700B8EDA3 /* Classes in Resources */,
 				86583B561BF2C18E0027FD19 /* 8396746.png in Resources */,
 				8634CF101BF59560001569D1 /* Icon.png in Resources */,
 				8634CF121BF59560001569D1 /* iTunesArtwork@2x.png in Resources */,
@@ -328,23 +383,79 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0128D7717589F45D9C97B337 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2F584110337C93CF673A46B4 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-attendo1/Pods-attendo1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F55C6E6657C03FE1A2813917 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-attendo1/Pods-attendo1-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		861EFCEE1BEE6DAB000085F0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				868584C21CB822CF00E11A71 /* secondViewController.swift in Sources */,
 				861EFCFD1BEE6DAD000085F0 /* ViewController.swift in Sources */,
 				861EFD1F1BEE7783000085F0 /* qrcode.swift in Sources */,
 				861EFD231BEE7F12000085F0 /* AddClass.swift in Sources */,
 				861EFCF81BEE6DAD000085F0 /* AppDelegate.swift in Sources */,
+				868584C61CBAF2C000E11A71 /* newStudentViewController.swift in Sources */,
 				86583B501BF2AF5C0027FD19 /* YouveAttendedViewController.swift in Sources */,
+				868584BE1CB6C63800E11A71 /* TableViewCell.swift in Sources */,
 				861EFD281BEE8A02000085F0 /* Class2.swift in Sources */,
+				868584C81CBAF9B600E11A71 /* studentCalViewController.swift in Sources */,
 				86583B521BF2B8D80027FD19 /* SelectClassViewController.swift in Sources */,
+				868584CA1CBC073800E11A71 /* testAPIViewController.swift in Sources */,
 				861EFD261BEE8411000085F0 /* EditClass.swift in Sources */,
 				868E10621BF523CA00EA7C65 /* EditViewController.swift in Sources */,
+				868584C41CB83CA200E11A71 /* viewStudentViewController.swift in Sources */,
+				86D51E3F1CB47A6600B8EDA3 /* NewViewController.swift in Sources */,
 				86583B4A1BF06C8C0027FD19 /* AddClass2.swift in Sources */,
 				861EFD211BEE7E2D000085F0 /* ProfessorPanel.swift in Sources */,
 				861EFCFB1BEE6DAD000085F0 /* attendo1.xcdatamodeld in Sources */,
+				868584C01CB8015200E11A71 /* NewTeechViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +518,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -469,13 +581,15 @@
 		};
 		861EFD151BEE6DAF000085F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C72BCE6F5901B2E256CC0DBC /* Pods-attendo1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = attendo1/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nikhowlett.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -483,13 +597,15 @@
 		};
 		861EFD161BEE6DAF000085F0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FE27EEDD2BCE13FC0F69822 /* Pods-attendo1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = attendo1/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nikhowlett.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -497,6 +613,7 @@
 		};
 		861EFD181BEE6DAF000085F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C72BCE6F5901B2E256CC0DBC /* Pods-attendo1.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -509,6 +626,7 @@
 				);
 				INFOPLIST_FILE = attendo1Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nikhowlett.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/attendo1.app/attendo1";
 			};
@@ -516,6 +634,7 @@
 		};
 		861EFD191BEE6DAF000085F0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FE27EEDD2BCE13FC0F69822 /* Pods-attendo1.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -524,6 +643,7 @@
 				);
 				INFOPLIST_FILE = attendo1Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nikhowlett.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/attendo1.app/attendo1";
 			};

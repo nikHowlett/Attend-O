@@ -35,6 +35,14 @@ class ViewController: UIViewController {
     @IBAction func Login(sender: AnyObject) {
         if usernametextfield.text == "abowd" {
              self.performSegueWithIdentifier("teacherLogin", sender: self)
+        } else if usernametextfield.text == "sampleTeacher" {
+            self.performSegueWithIdentifier("newTeacher", sender: self)
+        } else if usernametextfield.text == "teacher" {
+            self.performSegueWithIdentifier("teacher", sender: self)
+        } else if usernametextfield.text == "student" {
+            self.performSegueWithIdentifier("newStudent", sender: self)
+        } else if usernametextfield.text == "testAPI" {
+            self.performSegueWithIdentifier("testAPI", sender: self)
         } else {
             self.performSegueWithIdentifier("studentLogin", sender: self)
         }

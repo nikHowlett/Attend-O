@@ -1,0 +1,30 @@
+PODS:
+  - HexColors (2.3.0)
+  - Ji (1.2.0):
+    - Ji/Ji (= 1.2.0)
+  - Ji/Ji (1.2.0):
+    - Ji/Ji-libxml
+  - Ji/Ji-libxml (1.2.0)
+  - MJCalendar (0.1.0):
+    - NSDate-Escort (~> 1.5)
+    - UIView+JMFrame
+  - NSDate-Escort (1.7.0)
+  - SwiftHTTP (1.0.5)
+  - UIView+JMFrame (0.1.2)
+
+DEPENDENCIES:
+  - HexColors
+  - Ji (~> 1.2.0)
+  - MJCalendar
+  - NSDate-Escort
+  - SwiftHTTP (~> 1.0.4)
+
+SPEC CHECKSUMS:
+  HexColors: 6ad3947c3447a055a3aa8efa859def096351fe5f
+  Ji: ddebb22f9ac445db6e884b66f78ea74fb135fdb7
+  MJCalendar: fb7f03db61830291bdf0913542d0bfb1e9700278
+  NSDate-Escort: 3469fefab423c094108c2e864416b61b6ac0edbc
+  SwiftHTTP: edb45e72f27d1d95d328d2b2c16a61aa94f1e9f7
+  UIView+JMFrame: a907974c9d34b1c300aef85ae2a1a5af746f2b8a
+
+COCOAPODS: 0.39.0

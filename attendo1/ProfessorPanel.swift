@@ -25,7 +25,7 @@ class ProfessorPanel: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     var pickerSelectedClassDate: NSDate = NSDate()
     
-    var pickerSelectedClassObj: NSManagedObject = NSManagedObject()
+    //var pickerSelectedClassObj: NSManagedObject = NSManagedObject()
     
     var backupData: [String] = [String]()
     
@@ -108,11 +108,6 @@ class ProfessorPanel: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         performSegueWithIdentifier("editClass", sender: self)
     }
     
-    @IBAction func signOut(sender: AnyObject) {
-        performSegueWithIdentifier("unwindToHome", sender: self)
-        performSegueWithIdentifier("unwindToHome2", sender: self)
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "editClass") {
             let svc = segue.destinationViewController as! EditViewController
@@ -129,15 +124,24 @@ class ProfessorPanel: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
     }
     
-    @IBAction func unwindToVC(segue: UIStoryboardSegue) {
-            let alert = UIAlertView()
+    @IBAction func Logout9(sender: AnyObject) {
+        /*if #available(iOS 9.0, *) {
+            //self.navigationController?.popToViewController((ViewController.self as? UIViewController)!, animated: true)
+            self.navigationController?.popToRootViewControllerAnimated(true)
+            self.navigationController?.popToViewController(viewControllerForUnwindSegueAction("logout9", fromViewController: ProfessorPanel, withSender: self), animated: true)
+        }*/
+        
+    }
+    
+    /*@IBAction func unwindToVC(segue: UIStoryboardSegue) {
+            /*let alert = UIAlertView()
             alert.title = "Signing Out"
             alert.message = "You have successfully signed out."
             alert.addButtonWithTitle("Ok")
             alert.show()
-            print("test")
+            print("test")*/
         if let redViewController = segue.sourceViewController as? ProfessorPanel {
             print("Coming from RED")
         }
-    }
+    }*/
 }

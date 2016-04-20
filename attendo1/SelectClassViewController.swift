@@ -70,10 +70,13 @@ class SelectClassViewController: UIViewController, MFMailComposeViewControllerDe
         }
         if counter == 0 {
             qrImage.image = UIImage(named:"368px-QR_Code_Example.svg.png")
+            filestring = "368px-QR_Code_Example.svg"
         } else if counter == 1 {
             qrImage.image = UIImage(named:"C6Eq0.png")
+            filestring = "C6Eq0"
         } else if counter == 2 {
             qrImage.image = UIImage(named:"8396746.png")
+            filestring = "8396746"
         }
     }
     
@@ -101,7 +104,7 @@ class SelectClassViewController: UIViewController, MFMailComposeViewControllerDe
         mailComposerVC.setSubject("Attend-O Auto-Generated QR Code")
         let jenkins = "For Class \(classNameSent) at time \(dateTimeSent)"
         var body: String = "<html><body>For Class \(classNameSent) at time \(dateTimeSent) QR code below<br/>"
-        if let imageData2 = UIImageJPEGRepresentation(qrImage.image!, 0.0) {
+        /*if let imageData2 = UIImageJPEGRepresentation(qrImage.image!, 0.0) {
             let base64String2: String = imageData2.base64EncodedStringWithOptions(NSDataBase64EncodingOptions())
             body = body + "<div><img src='data:image/png;base64,\(base64String2)' height='100' width='150'/></div>"
         }
@@ -113,10 +116,23 @@ class SelectClassViewController: UIViewController, MFMailComposeViewControllerDe
         }
         body = body + "</body></html>"
         mailComposerVC.setToRecipients(["attendo3750@gmail.com"])
+        mailComposerVC.setMessageBody(body, isHTML: true)*/
         mailComposerVC.setMessageBody(body, isHTML: true)
-
+        if let filePath = NSBundle.mainBundle().pathForResource(filestring, ofType: "png") {
+            print("File path loaded.")
+            
+            if let fileData = NSData(contentsOfFile: filePath) {
+                print("njjjjjjjjjjFile data loaded.")
+                mailComposerVC.addAttachmentData(fileData, mimeType: "image/png", fileName: "QRCode")
+            }
+        }
         //mailComposerVC.setMessageBody("\(jenkins)", isHTML: false)
         return mailComposerVC
     }
+    
+    @IBAction func refreshBack(sender: AnyObject) {
+        self.performSegueWithIdentifier("reload", sender: self)
+    }
+    
 
 }

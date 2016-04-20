@@ -55,9 +55,6 @@ class EditViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = backButtonItem*/
         // Do any additional setup after loading the view.
     }
-    func methodCall(sender:UIBarButtonItem) {
-        self.performSegueWithIdentifier("reloadProfPanel", sender: self)
-    }
     @IBAction func methodjall(sender: AnyObject) {
         self.performSegueWithIdentifier("reloadProfPanel", sender: self)
     }
@@ -92,12 +89,46 @@ class EditViewController: UIViewController {
         alert.message = "You have successfully edited the class."
         alert.addButtonWithTitle("Ok")
         alert.show()
+        scheduleLocalNotification()
     }
 
     func DismissKeyboard(){
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
+    
+    
+    func scheduleLocalNotification() {
+        let localNotification = UILocalNotification()
+        localNotification.soundName = "beep-01a.wav"
+        if #available(iOS 8.2, *) {
+            localNotification.alertTitle = "Take Attendance!"
+        } else {
+            // Fallback on earlier versions
+        }
+        localNotification.alertBody = "Class \(classNameTextField.text!) is starting, time to take attendance!"
+        localNotification.alertAction = "Generate QR"
+        if #available(iOS 8.0, *) {
+            localNotification.category = "classCategory"
+        } else {
+            // Fallback on earlier versions
+        }
+        print(pickerDateOutlet.date)
+        localNotification.fireDate = pickerDateOutlet.date
+        localNotification.repeatInterval = .Day
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+    }
+    
+    func fixNotificationDate(dateToFix: NSDate) -> NSDate {
+        let dateComponets: NSDateComponents = NSCalendar.currentCalendar().components([NSCalendarUnit.NSDayCalendarUnit, NSCalendarUnit.NSMonthCalendarUnit, NSCalendarUnit.NSYearCalendarUnit, NSCalendarUnit.NSHourCalendarUnit, NSCalendarUnit.NSMinuteCalendarUnit], fromDate: dateToFix)
+        
+        dateComponets.second = 0
+        
+        let fixedDate: NSDate! = NSCalendar.currentCalendar().dateFromComponents(dateComponets)
+        print(fixedDate)
+        return fixedDate
+    }
+
     
     /*
     // MARK: - Navigation
