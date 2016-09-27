@@ -63,7 +63,7 @@ public class MJPeriodView: MJComponentView {
         }
     }
     
-    override public func layoutSubviews() {
+    override func updateFrame() {
         for (index, week) in (self.weeks!).enumerate() {
             let lineHeight = self.delegate.configurationWithComponent(self).rowHeight
             week.frame = CGRectMake(0, CGFloat(index) * lineHeight, self.width(), lineHeight)
@@ -76,5 +76,29 @@ public class MJPeriodView: MJComponentView {
     
     public func endingDate() -> NSDate {
         return self.weeks!.last!.days!.last!.date!
+    }
+    
+    public func startingPeriodDate() -> NSDate {
+        let monthCount = MJConfiguration.PeriodType.Month.weeksCount()
+        if self.weeks?.count == monthCount {
+            let middleDate = self.weeks![3].date
+            return middleDate.dateAtStartOfMonth()
+        } else {
+            return startingDate()
+        }
+    }
+    
+    public func endingPeriodDate() -> NSDate {
+        let monthCount = MJConfiguration.PeriodType.Month.weeksCount()
+        if self.weeks?.count == monthCount {
+            let middleDate = self.weeks![3].date
+            return middleDate.dateAtEndOfMonth()
+        } else {
+            return endingDate()
+        }
+    }
+    
+    public func isDateInPeriod(date: NSDate) -> Bool {
+        return date.isLaterThanOrEqualDate(startingPeriodDate()) && date.isEarlierThanOrEqualDate(endingPeriodDate())
     }
 }

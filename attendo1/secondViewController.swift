@@ -73,6 +73,7 @@ class secondViewController: UIViewController, MJCalendarViewDelegate {
         self.calendarView.configuration.selectedDayType = .Filled
         
         // Set day text color
+        self.calendarView.configuration.dayTextColor = UIColor(netHex: 0x6f787c)
         self.calendarView.configuration.dayTextColor = UIColor(hexString: "6f787c")
         
         // Set day background color

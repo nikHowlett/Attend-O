@@ -5,7 +5,7 @@
 //  Created by Nik Howlett on 4/11/16.
 //  Copyright © 2016 NikHowlett. All rights reserved.
 //
-import SwiftHTTP
+//import SwiftHTTP
 import UIKit
 import Ji
 
@@ -92,7 +92,7 @@ class testAPIViewController: UIViewController {
     
     func jsonParser4() {
         print("yes")
-        do {
+        /*do {
             let opt = try HTTP.New("gtwhereami.herokuapp.com/user/", method: .GET, requestSerializer: JSONParameterSerializer())
             opt.onFinish = { response in
                 if let err = response.error {
@@ -103,7 +103,7 @@ class testAPIViewController: UIViewController {
             }
         } catch let error {
             print("got an error creating the request: \(error)")
-        }
+        }*/
     }
     
     @IBAction func alamo(sender: AnyObject) {

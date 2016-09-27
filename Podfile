@@ -12,6 +12,7 @@ target 'attendo1' do
   	pod "NSDate-Escort"
 	#pod 'Alamofire', '~> 3.3'
 	pod 'SwiftHTTP', '~> 1.0.4'
+	pod 'Kanna', '~> 1.1.0'
 end
 
 target 'attendo1Tests' do

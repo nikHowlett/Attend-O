@@ -46,7 +46,9 @@ public class MJDayView: MJComponentView {
     }
     
     func didTap() {
-        self.delegate.componentView(self, didSelectDate: self.date)
+        if !self.delegate.isDateOutOfRange(self, date: self.date) {
+            self.delegate.componentView(self, didSelectDate: self.date)
+        }
     }
     
     func setUpBorderView() {
@@ -61,15 +63,15 @@ public class MJDayView: MJComponentView {
         self.addSubview(self.label)
     }
     
-    override public func layoutSubviews() {
+    override func updateFrame() {
         let labelSize = self.labelSize()
         let labelFrame = CGRectMake((self.width() - labelSize.width) / 2,
-            (self.height() - labelSize.height) / 2, labelSize.width, labelSize.height)
+                                    (self.height() - labelSize.height) / 2, labelSize.width, labelSize.height)
         self.label.frame = labelFrame
         
         let dayViewSize = self.delegate.configurationWithComponent(self).dayViewSize
         let borderFrame = CGRectMake((self.width() - dayViewSize.width) / 2,
-            (self.height() - dayViewSize.height) / 2, dayViewSize.width, dayViewSize.height)
+                                     (self.height() - dayViewSize.height) / 2, dayViewSize.width, dayViewSize.height)
         self.borderView.frame = borderFrame
     }
     
@@ -116,7 +118,11 @@ public class MJDayView: MJComponentView {
     
     func setViewBackgrounds() {
         if self.isSameMonth {
-            self.backgroundColor = self.delegate.configurationWithComponent(self).dayBackgroundColor
+            if self.delegate.isDateOutOfRange(self, date: self.date) {
+                self.backgroundColor = self.delegate.configurationWithComponent(self).outOfRangeDayBackgroundColor
+            } else {
+                self.backgroundColor = self.delegate.configurationWithComponent(self).dayBackgroundColor
+            }
         } else {
             self.backgroundColor = self.delegate.configurationWithComponent(self).otherMonthBackgroundColor
         }
@@ -130,7 +136,11 @@ public class MJDayView: MJComponentView {
             if let textColor = self.delegate.componentView(self, textColorForDate: self.date) {
                 self.label.textColor = textColor
             } else {
-                self.label.textColor = self.delegate.configurationWithComponent(self).dayTextColor
+                if self.delegate.isDateOutOfRange(self, date: self.date) {
+                    self.label.textColor = self.delegate.configurationWithComponent(self).outOfRangeDayTextColor
+                } else {
+                    self.label.textColor = self.delegate.configurationWithComponent(self).dayTextColor
+                }
             }
         } else {
             self.label.textColor = self.delegate.configurationWithComponent(self).otherMonthTextColor
@@ -140,20 +150,24 @@ public class MJDayView: MJComponentView {
     func setBackgrounds() {
         if self.delegate.componentView(self, isDateSelected: self.date)
             && self.delegate.configurationWithComponent(self).selectedDayType == .Filled {
-            self.label.backgroundColor = self.delegate.configurationWithComponent(self).selectedDayBackgroundColor
-        } else if let backgroundColor = self.delegate.componentView(self, backgroundColorForDate: self.date) {
-            self.label.backgroundColor = self.isSameMonth
-                ? backgroundColor
-                : self.delegate.configurationWithComponent(self).otherMonthBackgroundColor
+                self.label.backgroundColor = self.delegate.configurationWithComponent(self).selectedDayBackgroundColor
+        } else if self.isSameMonth {
+            if let backgroundColor = self.delegate.componentView(self, backgroundColorForDate: self.date) {
+                self.label.backgroundColor = backgroundColor
+            } else {
+                if self.delegate.isDateOutOfRange(self, date: self.date) {
+                    self.label.backgroundColor = self.delegate.configurationWithComponent(self).outOfRangeDayBackgroundColor
+                } else {
+                    self.label.backgroundColor = self.delegate.configurationWithComponent(self).dayBackgroundColor
+                }
+            }
         } else {
-            self.label.backgroundColor = self.isSameMonth
-                ? self.delegate.configurationWithComponent(self).dayBackgroundColor
-                : self.delegate.configurationWithComponent(self).otherMonthBackgroundColor
+            self.label.backgroundColor = self.delegate.configurationWithComponent(self).otherMonthBackgroundColor
         }
     }
     
     func setBorder() {
         self.borderView.backgroundColor = self.delegate.configurationWithComponent(self).selectedDayBackgroundColor
-        self.borderView.hidden = !self.delegate.componentView(self, isDateSelected: self.date)
+        self.borderView.hidden = !(self.delegate.componentView(self, isDateSelected: self.date) && isSameMonth)
     }
 }

@@ -26,6 +26,8 @@ class viewStudentViewController: UIViewController, UITableViewDelegate, UITableV
     
     var students: [String] = ["John Hopkins", "Little Knight", "Donovan Rouge", "Sally Patch", "Hunter Robinson", "Drake Knightly"]
     
+    var numers: [Int] = [0, 6, 7, 8, 9, 9, 10]
+    
     var toolBarBool = false
     
     override func viewDidLoad() {
@@ -70,6 +72,7 @@ class viewStudentViewController: UIViewController, UITableViewDelegate, UITableV
         let cell:UITableViewCell = self.studentTable.dequeueReusableCellWithIdentifier("StudentCell")! as UITableViewCell
         
         cell.textLabel?.text = self.students[indexPath.row]
+        //cell.detailTextLabel?.text = "\(self.numers[indexPath.row])"
         //cell.detailTextLabel?.text = self.students[indexPath.row]
         
         return cell
