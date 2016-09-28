@@ -57,6 +57,14 @@
 		86B3DE9C1D9B1EE10031F282 /* TSReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3DE9B1D9B1EE10031F282 /* TSReader.swift */; };
 		86B3DEB71D9B22EA0031F282 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3DEB51D9B22EA0031F282 /* Authenticator.swift */; };
 		86B3DEB81D9B22EA0031F282 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3DEB61D9B22EA0031F282 /* HttpClient.swift */; };
+		86B3DEBA1D9B41290031F282 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3DEB91D9B41290031F282 /* LoginViewController.swift */; };
+		86B3DEBC1D9B41E30031F282 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3DEBB1D9B41E30031F282 /* Class.swift */; };
+		86B3DEBE1D9B41F40031F282 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3DEBD1D9B41F40031F282 /* Announcement.swift */; };
+		86B3DEC01D9B41FD0031F282 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3DEBF1D9B41FD0031F282 /* Resource.swift */; };
+		86B3DEC21D9B42090031F282 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3DEC11D9B42090031F282 /* Assignment.swift */; };
+		86B3DEC41D9B42120031F282 /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3DEC31D9B42120031F282 /* Grade.swift */; };
+		86B3DEC61D9B42D60031F282 /* CoreSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3DEC51D9B42D60031F282 /* CoreSwift.swift */; };
+		86B3DEC81D9B43570031F282 /* ZLKeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3DEC71D9B43570031F282 /* ZLKeychainService.swift */; };
 		86D51E3F1CB47A6600B8EDA3 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D51E3E1CB47A6600B8EDA3 /* NewViewController.swift */; };
 		86D51E411CB47AC700B8EDA3 /* Classes in Resources */ = {isa = PBXBuildFile; fileRef = 86D51E401CB47AC700B8EDA3 /* Classes */; };
 		DC0C19C8B5C8DF7CE658F6BA /* Pods_attendo1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A090E6F959344AA6340C29CE /* Pods_attendo1Tests.framework */; };
@@ -182,6 +190,14 @@
 		86B3DE9D1D9B21A20031F282 /* Kanna.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kanna.xcodeproj; path = "../../Downloads/T-Squared-master/Kanna.xcodeproj"; sourceTree = "<group>"; };
 		86B3DEB51D9B22EA0031F282 /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Authenticator.swift; path = "../../Downloads/T-Squared-master/T-Square/Networking/Authenticator.swift"; sourceTree = "<group>"; };
 		86B3DEB61D9B22EA0031F282 /* HttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpClient.swift; path = "../../Downloads/T-Squared-master/T-Square/Networking/HttpClient.swift"; sourceTree = "<group>"; };
+		86B3DEB91D9B41290031F282 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "../../Downloads/T-Squared-master/T-Square/Views/LoginViewController.swift"; sourceTree = "<group>"; };
+		86B3DEBB1D9B41E30031F282 /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Class.swift; path = "../../Downloads/T-Squared-master/T-Square/Model/Class.swift"; sourceTree = "<group>"; };
+		86B3DEBD1D9B41F40031F282 /* Announcement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Announcement.swift; path = "../../Downloads/T-Squared-master/T-Square/Model/Announcement.swift"; sourceTree = "<group>"; };
+		86B3DEBF1D9B41FD0031F282 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = "../../Downloads/T-Squared-master/T-Square/Model/Resource.swift"; sourceTree = "<group>"; };
+		86B3DEC11D9B42090031F282 /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Assignment.swift; path = "../../Downloads/T-Squared-master/T-Square/Model/Assignment.swift"; sourceTree = "<group>"; };
+		86B3DEC31D9B42120031F282 /* Grade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Grade.swift; path = "../../Downloads/T-Squared-master/T-Square/Model/Grade.swift"; sourceTree = "<group>"; };
+		86B3DEC51D9B42D60031F282 /* CoreSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreSwift.swift; path = "../../Downloads/T-Squared-master/T-Square/Utilities/CoreSwift.swift"; sourceTree = "<group>"; };
+		86B3DEC71D9B43570031F282 /* ZLKeychainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZLKeychainService.swift; path = "../../Downloads/T-Squared-master/T-Square/Utilities/ZLKeychainService.swift"; sourceTree = "<group>"; };
 		86D51E3E1CB47A6600B8EDA3 /* NewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
 		86D51E401CB47AC700B8EDA3 /* Classes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Classes; sourceTree = "<group>"; };
 		A090E6F959344AA6340C29CE /* Pods_attendo1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_attendo1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,12 +289,18 @@
 				861EFCF71BEE6DAD000085F0 /* AppDelegate.swift */,
 				861EFCFC1BEE6DAD000085F0 /* ViewController.swift */,
 				86B3DEB51D9B22EA0031F282 /* Authenticator.swift */,
+				86B3DEBD1D9B41F40031F282 /* Announcement.swift */,
+				86B3DEC31D9B42120031F282 /* Grade.swift */,
 				86B3DEB61D9B22EA0031F282 /* HttpClient.swift */,
+				86B3DEBF1D9B41FD0031F282 /* Resource.swift */,
 				861EFD251BEE8411000085F0 /* EditClass.swift */,
+				86B3DEC11D9B42090031F282 /* Assignment.swift */,
 				868584C51CBAF2BF00E11A71 /* newStudentViewController.swift */,
 				868E10611BF523CA00EA7C65 /* EditViewController.swift */,
+				86B3DEC51D9B42D60031F282 /* CoreSwift.swift */,
 				861EFD271BEE8A02000085F0 /* Class2.swift */,
 				868584C91CBC073800E11A71 /* testAPIViewController.swift */,
+				86B3DEBB1D9B41E30031F282 /* Class.swift */,
 				86B3DE9D1D9B21A20031F282 /* Kanna.xcodeproj */,
 				868584C71CBAF9B600E11A71 /* studentCalViewController.swift */,
 				868584C11CB822CF00E11A71 /* secondViewController.swift */,
@@ -286,9 +308,11 @@
 				861EFD1E1BEE7783000085F0 /* qrcode.swift */,
 				86B3DE9B1D9B1EE10031F282 /* TSReader.swift */,
 				868584C31CB83CA200E11A71 /* viewStudentViewController.swift */,
+				86B3DEC71D9B43570031F282 /* ZLKeychainService.swift */,
 				86D51E3E1CB47A6600B8EDA3 /* NewViewController.swift */,
 				866991761D7F4BE9008FA424 /* down.png */,
 				868584BF1CB8015200E11A71 /* NewTeechViewController.swift */,
+				86B3DEB91D9B41290031F282 /* LoginViewController.swift */,
 				868584BD1CB6C63800E11A71 /* TableViewCell.swift */,
 				86583B4F1BF2AF5C0027FD19 /* YouveAttendedViewController.swift */,
 				86583B511BF2B8D80027FD19 /* SelectClassViewController.swift */,
@@ -634,6 +658,7 @@
 				868584C21CB822CF00E11A71 /* secondViewController.swift in Sources */,
 				866991751D7F4ADB008FA424 /* FViewController.swift in Sources */,
 				861EFCFD1BEE6DAD000085F0 /* ViewController.swift in Sources */,
+				86B3DEBE1D9B41F40031F282 /* Announcement.swift in Sources */,
 				86B3DE9C1D9B1EE10031F282 /* TSReader.swift in Sources */,
 				861EFD1F1BEE7783000085F0 /* qrcode.swift in Sources */,
 				861EFD231BEE7F12000085F0 /* AddClass.swift in Sources */,
@@ -643,17 +668,24 @@
 				86583B501BF2AF5C0027FD19 /* YouveAttendedViewController.swift in Sources */,
 				86B3DEB81D9B22EA0031F282 /* HttpClient.swift in Sources */,
 				868584BE1CB6C63800E11A71 /* TableViewCell.swift in Sources */,
+				86B3DEC01D9B41FD0031F282 /* Resource.swift in Sources */,
 				861EFD281BEE8A02000085F0 /* Class2.swift in Sources */,
+				86B3DEBA1D9B41290031F282 /* LoginViewController.swift in Sources */,
 				868584C81CBAF9B600E11A71 /* studentCalViewController.swift in Sources */,
 				86583B521BF2B8D80027FD19 /* SelectClassViewController.swift in Sources */,
+				86B3DEC61D9B42D60031F282 /* CoreSwift.swift in Sources */,
 				868584CA1CBC073800E11A71 /* testAPIViewController.swift in Sources */,
 				861EFD261BEE8411000085F0 /* EditClass.swift in Sources */,
+				86B3DEC81D9B43570031F282 /* ZLKeychainService.swift in Sources */,
 				868E10621BF523CA00EA7C65 /* EditViewController.swift in Sources */,
 				868584C41CB83CA200E11A71 /* viewStudentViewController.swift in Sources */,
 				86D51E3F1CB47A6600B8EDA3 /* NewViewController.swift in Sources */,
+				86B3DEC41D9B42120031F282 /* Grade.swift in Sources */,
 				86583B4A1BF06C8C0027FD19 /* AddClass2.swift in Sources */,
+				86B3DEBC1D9B41E30031F282 /* Class.swift in Sources */,
 				861EFD211BEE7E2D000085F0 /* ProfessorPanel.swift in Sources */,
 				861EFCFB1BEE6DAD000085F0 /* attendo1.xcdatamodeld in Sources */,
+				86B3DEC21D9B42090031F282 /* Assignment.swift in Sources */,
 				868584C01CB8015200E11A71 /* NewTeechViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

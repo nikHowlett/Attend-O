@@ -52,9 +52,9 @@ class studentCalViewController: UIViewController, MJCalendarViewDelegate {
     
     var colors: [UIColor] {
         return [
-            UIColor(hexString: "#f6980b"),
+            UIColor(netHex: 0xf6980b),
             //UIColor(hexString: "#2081D9"),
-            UIColor(hexString: "#2fbd8f"),
+            UIColor(netHex: 0x2fbd8f),
             //UIColor(netHex: 0xF6980B),
             //UIColor(netHex: 0x2081D9),
             //UIColor(netHex: 0x2FBD8F),
@@ -98,25 +98,25 @@ class studentCalViewController: UIViewController, MJCalendarViewDelegate {
         self.calendarView.configuration.selectedDayType = .Filled
         
         // Set day text color
-        self.calendarView.configuration.dayTextColor = UIColor(hexString: "6f787c")
+        self.calendarView.configuration.dayTextColor = UIColor(netHex: 0x6f787c)
         
         // Set day background color
-        self.calendarView.configuration.dayBackgroundColor = UIColor(hexString: "f0f0f0")
+        self.calendarView.configuration.dayBackgroundColor = UIColor(netHex: 0xf0f0f0)
         
         // Set selected day text color
         self.calendarView.configuration.selectedDayTextColor = UIColor.whiteColor()
         
         // Set selected day background color
-        self.calendarView.configuration.selectedDayBackgroundColor = UIColor(hexString: "2081D9")
+        self.calendarView.configuration.selectedDayBackgroundColor = UIColor(netHex: 0x2081D9)
         
         // Set other month day text color. Relevant only if periodType = .Month
-        self.calendarView.configuration.otherMonthTextColor = UIColor(hexString: "6f787c")
+        self.calendarView.configuration.otherMonthTextColor = UIColor(netHex: 0x6f787c)
         
         // Set other month background color. Relevant only if periodType = .Month
-        self.calendarView.configuration.otherMonthBackgroundColor = UIColor(hexString: "E7E7E7")
+        self.calendarView.configuration.otherMonthBackgroundColor = UIColor(netHex: 0xE7E7E7)
         
         // Set week text color
-        self.calendarView.configuration.weekLabelTextColor = UIColor(hexString: "6f787c")
+        self.calendarView.configuration.weekLabelTextColor = UIColor(netHex: 0x6f787c)
         
         // Set start day. Available type: .Monday, Sunday
         self.calendarView.configuration.startDayType = .Sunday
@@ -144,8 +144,8 @@ class studentCalViewController: UIViewController, MJCalendarViewDelegate {
         //Set max date
         self.calendarView.configuration.maxDate = NSDate().dateByAddingDays(60)
         
-        self.calendarView.configuration.outOfRangeDayBackgroundColor = UIColor(hexString: "E7E7E7")
-        self.calendarView.configuration.outOfRangeDayTextColor = UIColor(hexString: "6f787c")
+        self.calendarView.configuration.outOfRangeDayBackgroundColor = UIColor(netHex: 0xE7E7E7)
+        self.calendarView.configuration.outOfRangeDayTextColor = UIColor(netHex: 0x6f787c)
         
         self.calendarView.configuration.selectDayOnPeriodChange = false
         
