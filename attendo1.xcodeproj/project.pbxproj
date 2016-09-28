@@ -128,6 +128,55 @@
 			remoteGlobalIDString = 1EC47DB41BC9729F00647902;
 			remoteInfo = "Kanna_tvOS Tests";
 		};
+		86B3DED31D9B71D20031F282 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 86B3DEC91D9B71CF0031F282 /* Kanna.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1EAFA0D81B6039D5001F3D84;
+			remoteInfo = Kanna_iOS;
+		};
+		86B3DED51D9B71D20031F282 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 86B3DEC91D9B71CF0031F282 /* Kanna.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1EBA8A6B1B6632E800226B9C;
+			remoteInfo = Kanna_OSX;
+		};
+		86B3DED71D9B71D20031F282 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 86B3DEC91D9B71CF0031F282 /* Kanna.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1EC47DAB1BC9729F00647902;
+			remoteInfo = Kanna_tvOS;
+		};
+		86B3DED91D9B71D20031F282 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 86B3DEC91D9B71CF0031F282 /* Kanna.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1E4F86B51BD90AE1008EF835;
+			remoteInfo = Kanna_watchOS;
+		};
+		86B3DEDB1D9B71D20031F282 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 86B3DEC91D9B71CF0031F282 /* Kanna.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1EAFA0E31B6039D5001F3D84;
+			remoteInfo = KannaTests;
+		};
+		86B3DEDD1D9B71D20031F282 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 86B3DEC91D9B71CF0031F282 /* Kanna.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1E206B841B665E6D00441E12;
+			remoteInfo = "Kanna_OSX Tests";
+		};
+		86B3DEDF1D9B71D20031F282 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 86B3DEC91D9B71CF0031F282 /* Kanna.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1EC47DB41BC9729F00647902;
+			remoteInfo = "Kanna_tvOS Tests";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -198,6 +247,7 @@
 		86B3DEC31D9B42120031F282 /* Grade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Grade.swift; path = "../../Downloads/T-Squared-master/T-Square/Model/Grade.swift"; sourceTree = "<group>"; };
 		86B3DEC51D9B42D60031F282 /* CoreSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreSwift.swift; path = "../../Downloads/T-Squared-master/T-Square/Utilities/CoreSwift.swift"; sourceTree = "<group>"; };
 		86B3DEC71D9B43570031F282 /* ZLKeychainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZLKeychainService.swift; path = "../../Downloads/T-Squared-master/T-Square/Utilities/ZLKeychainService.swift"; sourceTree = "<group>"; };
+		86B3DEC91D9B71CF0031F282 /* Kanna.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kanna.xcodeproj; path = Frameworks/Kanna.xcodeproj; sourceTree = SOURCE_ROOT; };
 		86D51E3E1CB47A6600B8EDA3 /* NewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
 		86D51E401CB47AC700B8EDA3 /* Classes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Classes; sourceTree = "<group>"; };
 		A090E6F959344AA6340C29CE /* Pods_attendo1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_attendo1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,6 +352,7 @@
 				868584C91CBC073800E11A71 /* testAPIViewController.swift */,
 				86B3DEBB1D9B41E30031F282 /* Class.swift */,
 				86B3DE9D1D9B21A20031F282 /* Kanna.xcodeproj */,
+				86B3DEC91D9B71CF0031F282 /* Kanna.xcodeproj */,
 				868584C71CBAF9B600E11A71 /* studentCalViewController.swift */,
 				868584C11CB822CF00E11A71 /* secondViewController.swift */,
 				866991741D7F4ADA008FA424 /* FViewController.swift */,
@@ -367,6 +418,20 @@
 				86B3DEB01D9B21A30031F282 /* KannaTests.xctest */,
 				86B3DEB21D9B21A30031F282 /* Kanna_OSX Tests.xctest */,
 				86B3DEB41D9B21A30031F282 /* Kanna_tvOS Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		86B3DECA1D9B71CF0031F282 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				86B3DED41D9B71D20031F282 /* Kanna.framework */,
+				86B3DED61D9B71D20031F282 /* Kanna.framework */,
+				86B3DED81D9B71D20031F282 /* Kanna.framework */,
+				86B3DEDA1D9B71D20031F282 /* Kanna.framework */,
+				86B3DEDC1D9B71D20031F282 /* KannaTests.xctest */,
+				86B3DEDE1D9B71D20031F282 /* Kanna_OSX Tests.xctest */,
+				86B3DEE01D9B71D20031F282 /* Kanna_tvOS Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -449,6 +514,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 86B3DECA1D9B71CF0031F282 /* Products */;
+					ProjectRef = 86B3DEC91D9B71CF0031F282 /* Kanna.xcodeproj */;
+				},
+				{
 					ProductGroup = 86B3DE9E1D9B21A20031F282 /* Products */;
 					ProjectRef = 86B3DE9D1D9B21A20031F282 /* Kanna.xcodeproj */;
 				},
@@ -509,6 +578,55 @@
 			fileType = wrapper.cfbundle;
 			path = "Kanna_tvOS Tests.xctest";
 			remoteRef = 86B3DEB31D9B21A30031F282 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		86B3DED41D9B71D20031F282 /* Kanna.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Kanna.framework;
+			remoteRef = 86B3DED31D9B71D20031F282 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		86B3DED61D9B71D20031F282 /* Kanna.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Kanna.framework;
+			remoteRef = 86B3DED51D9B71D20031F282 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		86B3DED81D9B71D20031F282 /* Kanna.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Kanna.framework;
+			remoteRef = 86B3DED71D9B71D20031F282 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		86B3DEDA1D9B71D20031F282 /* Kanna.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Kanna.framework;
+			remoteRef = 86B3DED91D9B71D20031F282 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		86B3DEDC1D9B71D20031F282 /* KannaTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = KannaTests.xctest;
+			remoteRef = 86B3DEDB1D9B71D20031F282 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		86B3DEDE1D9B71D20031F282 /* Kanna_OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Kanna_OSX Tests.xctest";
+			remoteRef = 86B3DEDD1D9B71D20031F282 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		86B3DEE01D9B71D20031F282 /* Kanna_tvOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Kanna_tvOS Tests.xctest";
+			remoteRef = 86B3DEDF1D9B71D20031F282 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -817,6 +935,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = attendo1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -833,6 +952,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = attendo1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

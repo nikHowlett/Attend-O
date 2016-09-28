@@ -147,7 +147,7 @@ public class HTTPSecurity {
                 collect.append(SecCertificateCreateWithData(nil,cert)!)
             }
             SecTrustSetAnchorCertificates(trust,collect)
-            var result: SecTrustResultType = .Invalid
+            /*var result: SecTrustResultType = .Invalid
             SecTrustEvaluate(trust,&result)
             SecTrustResultType.
             if result == SecTrustResultType.Unspeciffied || result == SecTrustResultType.Proceed {
@@ -163,7 +163,7 @@ public class HTTPSecurity {
                 if trustedCount == serverCerts.count {
                     return true
                 }
-            }
+            }*/
         }
         return false
     }
@@ -194,9 +194,9 @@ public class HTTPSecurity {
         var possibleTrust: SecTrust?
         SecTrustCreateWithCertificates(cert, policy, &possibleTrust)
         if let trust = possibleTrust {
-            var result: SecTrustResultType = .Invalid
+            /*var result: SecTrustResultType = .Invalid
             SecTrustEvaluate(trust, &result)
-            return SecTrustCopyPublicKey(trust)
+            return SecTrustCopyPublicKey(trust)*/
         }
         return nil
     }

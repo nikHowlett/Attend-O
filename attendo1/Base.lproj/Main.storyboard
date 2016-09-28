@@ -100,6 +100,7 @@
                     <connections>
                         <outlet property="LoginButton" destination="GX4-sM-9IN" id="1zL-Ea-ko2"/>
                         <outlet property="TeacherStudent" destination="Ib9-V7-SaJ" id="xNc-kh-qry"/>
+                        <outlet property="passwordtextfield" destination="Bvp-2f-38J" id="6XN-7h-nMF"/>
                         <outlet property="usernametextfield" destination="CVU-zu-Qch" id="Gc2-Lu-tWH"/>
                         <segue destination="b9Q-FA-gBB" kind="show" identifier="studentLogin" id="cZY-Xe-9HI"/>
                         <segue destination="2UD-2U-UtD" kind="show" identifier="teacherLogin" id="09W-eA-WKZ"/>
