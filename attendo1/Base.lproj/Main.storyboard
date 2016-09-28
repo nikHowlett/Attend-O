@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GX4-sM-9IN">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GX4-sM-9IN">
                                 <rect key="frame" x="277" y="452" width="46" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="Sjb-39-Hd4"/>
@@ -30,19 +30,10 @@
                                     <action selector="Login:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eMx-zo-icl"/>
                                 </connections>
                             </button>
-                            <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ib9-V7-SaJ">
-                                <rect key="frame" x="361" y="361" width="51" height="31"/>
-                            </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Skp-sT-Btf">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Skp-sT-Btf">
                                 <rect key="frame" x="361" y="400" width="51" height="31"/>
                             </switch>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Teacher/Student" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ee3-ts-VHR">
-                                <rect key="frame" x="171" y="361" width="127" height="31"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.52140546089999995" green="0.52140546089999995" blue="0.52140546089999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Stay Signed-In" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAO-zT-mDf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Stay Signed-In" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAO-zT-mDf">
                                 <rect key="frame" x="171" y="405" width="177" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.52140546089999995" green="0.52140546089999995" blue="0.52140546089999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -73,35 +64,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ee3-ts-VHR" firstAttribute="top" secondItem="Ib9-V7-SaJ" secondAttribute="top" id="3fM-Sw-j49"/>
                             <constraint firstItem="Skp-sT-Btf" firstAttribute="trailing" secondItem="CVU-zu-Qch" secondAttribute="trailing" id="7Ni-Yz-T1d"/>
-                            <constraint firstItem="Skp-sT-Btf" firstAttribute="trailing" secondItem="Ib9-V7-SaJ" secondAttribute="trailing" id="8a2-OQ-BZf"/>
                             <constraint firstItem="GX4-sM-9IN" firstAttribute="top" secondItem="LAO-zT-mDf" secondAttribute="bottom" constant="21" id="Ad5-Hg-Xj5"/>
                             <constraint firstItem="Skp-sT-Btf" firstAttribute="bottom" secondItem="LAO-zT-mDf" secondAttribute="bottom" id="ChJ-LR-SNX"/>
                             <constraint firstItem="CVU-zu-Qch" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="F8S-qt-4ne"/>
                             <constraint firstAttribute="centerX" secondItem="J5g-ay-L9h" secondAttribute="centerX" id="Id8-kq-fBn"/>
-                            <constraint firstItem="Ib9-V7-SaJ" firstAttribute="leading" secondItem="Ee3-ts-VHR" secondAttribute="trailing" constant="63" id="LLi-J8-2hQ"/>
                             <constraint firstItem="LAO-zT-mDf" firstAttribute="leading" secondItem="Bvp-2f-38J" secondAttribute="leading" id="MRp-N3-pTj"/>
                             <constraint firstItem="Skp-sT-Btf" firstAttribute="trailing" secondItem="Bvp-2f-38J" secondAttribute="trailing" id="PYv-y9-9DT"/>
                             <constraint firstItem="Bvp-2f-38J" firstAttribute="top" secondItem="CVU-zu-Qch" secondAttribute="bottom" constant="8" symbolic="YES" id="QOL-ta-dmQ"/>
-                            <constraint firstItem="Ee3-ts-VHR" firstAttribute="bottom" secondItem="Ib9-V7-SaJ" secondAttribute="bottom" id="TR6-zr-fbi"/>
                             <constraint firstItem="Skp-sT-Btf" firstAttribute="leading" secondItem="LAO-zT-mDf" secondAttribute="trailing" constant="13" id="Ydc-BO-iFO"/>
-                            <constraint firstItem="LAO-zT-mDf" firstAttribute="top" secondItem="Ee3-ts-VHR" secondAttribute="bottom" constant="13" id="cC0-lX-FFR"/>
                             <constraint firstAttribute="centerX" secondItem="CVU-zu-Qch" secondAttribute="centerX" id="doO-60-mOJ"/>
-                            <constraint firstItem="Skp-sT-Btf" firstAttribute="top" secondItem="Ib9-V7-SaJ" secondAttribute="bottom" constant="8" symbolic="YES" id="eKD-6l-U0Q"/>
                             <constraint firstAttribute="centerX" secondItem="GX4-sM-9IN" secondAttribute="centerX" id="gSw-wl-ijE"/>
-                            <constraint firstItem="Ee3-ts-VHR" firstAttribute="top" secondItem="Bvp-2f-38J" secondAttribute="bottom" constant="8" symbolic="YES" id="kAl-7C-G1r"/>
                             <constraint firstAttribute="centerX" secondItem="Bvp-2f-38J" secondAttribute="centerX" id="mPe-9U-ORZ"/>
                             <constraint firstItem="J5g-ay-L9h" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="mov-gj-dEn"/>
-                            <constraint firstItem="LAO-zT-mDf" firstAttribute="leading" secondItem="Ee3-ts-VHR" secondAttribute="leading" id="yJc-lT-0CS"/>
                             <constraint firstItem="LAO-zT-mDf" firstAttribute="leading" secondItem="CVU-zu-Qch" secondAttribute="leading" id="zLH-AR-lS1"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="LoginButton" destination="GX4-sM-9IN" id="1zL-Ea-ko2"/>
-                        <outlet property="TeacherStudent" destination="Ib9-V7-SaJ" id="xNc-kh-qry"/>
-                        <outlet property="passwordtextfield" destination="Bvp-2f-38J" id="6XN-7h-nMF"/>
-                        <outlet property="usernametextfield" destination="CVU-zu-Qch" id="Gc2-Lu-tWH"/>
+                        <outlet property="passwordtextfield" destination="Bvp-2f-38J" id="S8k-dO-taH"/>
+                        <outlet property="usernametextfield" destination="CVU-zu-Qch" id="E66-hD-ojF"/>
                         <segue destination="b9Q-FA-gBB" kind="show" identifier="studentLogin" id="cZY-Xe-9HI"/>
                         <segue destination="2UD-2U-UtD" kind="show" identifier="teacherLogin" id="09W-eA-WKZ"/>
                         <segue destination="MYh-9D-zET" kind="unwind" unwindAction="unwindToVC:" id="LKG-AT-M8A"/>

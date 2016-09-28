@@ -16,14 +16,14 @@ let TSLogoutNotification2 = "edu.gatech.cal.logout"
 let TSDismissWebViewNotification2 = "edu.gatech.cal.dismissWeb"
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var LoginButton: UIButton!
-    
-    @IBOutlet weak var TeacherStudent: UISwitch!
     
     @IBOutlet weak var usernametextfield: UITextField!
     
     @IBOutlet weak var passwordtextfield: UITextField!
+    
+    required init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)!
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,6 @@ class ViewController: UIViewController {
                 if let reader = reader {
                     //let loginCount = 29//
                     print("this shit worked")
-                        
                         //NSUserDefaults.standardUserDefaults().integerForKey(TSLoginCountKey)
                     /*NSUserDefaults.standardUserDefaults().setInteger(loginCount + 1, forKey: TSLoginCountKey)*/
                     
