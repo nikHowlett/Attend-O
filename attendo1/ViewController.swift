@@ -136,7 +136,7 @@ class ViewController: UIViewController {
             //present an alert and then exit the app if the classes aren't loading
             //this means a failed authentication looked like it passed
             //AKA I have no idea what happened
-            let message = "This happens every now and then. Please restart T-Squared and try again. If this keeps happening, please send an email to cal@calstephens.tech"
+            let message = "This happens every now and then. Please restart Attend-O and try again. If this keeps happening, please send an email to nhowlett6@gatech.edu"
             let alert = UIAlertController(title: "There was a problem logging you in.", message: message, preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Restart", style: .Default, handler: { _ in
                 //crash
