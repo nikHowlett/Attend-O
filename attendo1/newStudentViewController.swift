@@ -15,6 +15,8 @@ class newStudentViewController: UIViewController, UITableViewDelegate, UITableVi
     var groups: [String] = ["A1", "F3", "B2"]
     
     var theClass = "CS 1332"
+    var classes2: [Class]?
+    var username: String = "George P. Burdell"
     
     @IBOutlet weak var classTable: UITableView!
     
@@ -22,6 +24,17 @@ class newStudentViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         self.classTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "ClassCell")
         self.title = "Select a Class"
+        print(classes2)
+        print("classes printed")
+        if classes2?.count > 0 {
+            var be = 0
+            items = []
+            while be < classes2?.count {
+                items.append("\(classes2![be])")
+                be = be + 1
+            }
+        }
+        //self.classes = TSAuthenticatedReader2.getActiveClasses()
         // Do any additional setup after loading the view.
     }
 

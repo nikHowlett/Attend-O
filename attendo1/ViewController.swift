@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var usernametextfield: UITextField!
     
     @IBOutlet weak var passwordtextfield: UITextField!
-    
+    var classes1: [Class]?
     required init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)!
     }
@@ -49,10 +49,13 @@ class ViewController: UIViewController {
                 if let reader = reader {
                     //let loginCount = 29//
                     print("this shit worked")
+                    
                         //NSUserDefaults.standardUserDefaults().integerForKey(TSLoginCountKey)
                     /*NSUserDefaults.standardUserDefaults().setInteger(loginCount + 1, forKey: TSLoginCountKey)*/
                     
-                    TSAuthenticatedReader = reader
+                    TSAuthenticatedReader2 = reader
+                    self.presentClassesView(reader)
+                    //self.performSegueWithIdentifier("newStudent", sender: self)
                     /*self.animateFormSubviewsWithDuration(0.5, hidden: false)
                     self.animateActivityIndicator(on: false)
                     self.setSavedCredentials(correct: true)
@@ -105,6 +108,86 @@ class ViewController: UIViewController {
     //pragma mark - Unwind Seques
     @IBAction func unwindToVC(segue: UIStoryboardSegue) {
         print("Called goToSideMenu: unwind action")
+    }
+    
+    
+
+    func presentClassesView(reader: TSReader) {
+        //tapRecognizer.enabled = false
+        var classes: [Class] = []
+        var loadAttempt = 0
+        while classes.count == 0 && loadAttempt < 4 && !reader.actuallyHasNoClasses {
+            loadAttempt += 1
+            classes = reader.getActiveClasses()
+            print(classes)
+            print("presentClassesView")
+            classes1 = classes
+            //self.prepareForS)
+            if classes.count == 0 {
+                reader.checkIfHasNoClasses()
+            }
+            
+            if loadAttempt > 2 {
+                HttpClient.clearCookies()
+            }
+        }
+        
+        if loadAttempt >= 4 {
+            //present an alert and then exit the app if the classes aren't loading
+            //this means a failed authentication looked like it passed
+            //AKA I have no idea what happened
+            let message = "This happens every now and then. Please restart T-Squared and try again. If this keeps happening, please send an email to cal@calstephens.tech"
+            let alert = UIAlertController(title: "There was a problem logging you in.", message: message, preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Restart", style: .Default, handler: { _ in
+                //crash
+                let null: Int! = nil
+                //null.threeCharacterString()
+            }))
+            self.presentViewController(alert, animated: true, completion: nil)
+            //self.setSavedCredentials(correct: false)
+            return
+        }
+        //self.performSegueWithIdentifier("newStudent", sender: self)
+        NSOperationQueue.mainQueue().addOperationWithBlock {
+            [weak self] in
+            self?.performSegueWithIdentifier("newStudent", sender: self)
+        }
+        
+        //newStudentViewController.classes2 = classes
+        //newStudentViewController.reloadTable()
+         
+         //open to the shortcut item if there is one queued
+         /*if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+         delegate.openShortcutItemIfPresent()
+         }*/
+         
+         //animatePresentClassesView()
+         /*classesViewController.loadAnnouncements(reloadClasses: false, withInlineActivityIndicator: true)*/
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "newStudent" {
+            //if let classes = segue.destinationViewController as? newStudentViewController {
+                //classes.classes2 = classes1
+            //}
+            let navVC = segue.destinationViewController as! UINavigationController
+            
+            let tableVC = navVC.viewControllers.first as! newStudentViewController
+            
+            tableVC.classes2 = classes1
+            tableVC.username = usernametextfield.text!
+        }
+        
+            /*print(TSAuthenticatedReader2.getActiveClasses())
+             print("classesprinted")
+             classes1 = classes.classes2*/
+            //classes.loginController = self
+            //classesViewController = classes
+        
+        /*if let browser = segue.destinationViewController as? TSWebView {
+         browser.loginController = self
+         self.browserViewController = browser
+         }*/
     }
 
 }
