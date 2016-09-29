@@ -18,6 +18,8 @@ class newStudentViewController: UIViewController, UITableViewDelegate, UITableVi
     var classes2: [Class]?
     var username: String = "George P. Burdell"
     
+    @IBOutlet weak var welcomeString: UILabel!
+    
     @IBOutlet weak var classTable: UITableView!
     
     override func viewDidLoad() {
@@ -33,6 +35,7 @@ class newStudentViewController: UIViewController, UITableViewDelegate, UITableVi
                 items.append("\(classes2![be])")
                 be = be + 1
             }
+            welcomeString.text! = "Welcome \(username)"
         }
         //self.classes = TSAuthenticatedReader2.getActiveClasses()
         // Do any additional setup after loading the view.
