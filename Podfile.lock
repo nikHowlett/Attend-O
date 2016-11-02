@@ -11,6 +11,7 @@ PODS:
     - UIView+JMFrame
   - NSDate-Escort (1.7.0)
   - SwiftHTTP (1.0.6)
+  - SwiftyJSON (3.1.1)
   - UIView+JMFrame (0.1.2)
 
 DEPENDENCIES:
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - MJCalendar
   - NSDate-Escort
   - SwiftHTTP (~> 1.0.4)
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
   HexColors: 5f95843ef89aff6a72e1fd3a8ebabf205cc43379
@@ -28,8 +30,9 @@ SPEC CHECKSUMS:
   MJCalendar: fded170474124dc14ae81868f7ffc69bc5438b6f
   NSDate-Escort: 3469fefab423c094108c2e864416b61b6ac0edbc
   SwiftHTTP: e9124c24b3cff5138d0fb6c5481192ee198a4c0b
+  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
   UIView+JMFrame: a907974c9d34b1c300aef85ae2a1a5af746f2b8a
 
-PODFILE CHECKSUM: 140d06aa5e4ab3b764c22f6340072f05091cbfef
+PODFILE CHECKSUM: 22b58f77e7aeb6a2d0edcf55ba32bccebf256ff4
 
 COCOAPODS: 1.1.0.rc.2

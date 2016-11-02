@@ -13,6 +13,7 @@ target 'attendo1' do
 	#pod 'Alamofire', '~> 3.3'
 	pod 'SwiftHTTP', '~> 1.0.4'
 	pod 'Kanna', '~> 1.1.0'
+	pod 'SwiftyJSON'
 end
 
 target 'attendo1Tests' do

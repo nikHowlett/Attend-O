@@ -21,6 +21,7 @@ class TSReader {
     let password: String
     var initialPage: HTMLDocument? = nil
     var actuallyHasNoClasses = false
+    var sectioniers: [String] = []
     
     init(username: String, password: String, initialPage: HTMLDocument?) {
         self.username = username
@@ -51,7 +52,7 @@ class TSReader {
             initialPage = nil
             return []
         }
-        
+        var strings: [String] = []
         var classes: [Class] = []
         var saveLinksAsClasses: Bool = false
         
@@ -64,9 +65,24 @@ class TSReader {
         
         for link in doc.css("a, link") {
             if let rawText = link.text {
-                
                 let text = rawText.cleansed()
-                
+                if text.containsString("-") {
+                    var sectionz = text.componentsSeparatedByString("-")
+                    if sectionz.count > 1 {
+                        print("SECTIONS KINDA WORKING")
+                        var labelz = sectionz[2]
+                        var bahd = labelz
+                        if labelz.containsString(",") {
+                            print("JID EDGE CASE")
+                            var loopuj = labelz.componentsSeparatedByString(",")
+                            bahd = loopuj[0]
+                        }
+                        print("below badh")
+                        print(bahd)
+                        strings.append(bahd)
+                    }
+                    
+                }
                 //class links start after My Workspace tab
                 if !saveLinksAsClasses && text == "My Workspace" {
                     saveLinksAsClasses = true
@@ -93,7 +109,72 @@ class TSReader {
         }
         
         self.classes = classes
+        sectioniers = strings
         return classes
+    }
+    func getActiveSections() -> [String] {
+        return sectioniers
+        /*
+        guard let doc = initialPage ?? HttpClient.contentsOfPage("https://t-square.gatech.edu/portal/pda/") else {
+            initialPage = nil
+            return []
+        }
+        
+        var classes: [Class] = []
+        var strings: [String] = []
+        var saveLinksAsClasses: Bool = false
+        
+        defer {
+            if classes.count > 0 {
+                Class.updateShotcutItemsForActiveClasses(classes)
+            }
+            self.initialPage = nil
+        }
+        
+        for link in doc.css("a, link") {
+            if let rawText = link.text {
+                let text = rawText.cleansed()
+                if text.containsString("-") {
+                    var sectionz = text.componentsSeparatedByString("-")
+                    if sectionz.count > 1 {
+                        print("SECTIONS KINDA WORKING")
+                        var labelz = sectionz[2]
+                        var bahd = labelz
+                        if labelz.containsString(",") {
+                            print("JID EDGE CASE")
+                            var loopuj = labelz.componentsSeparatedByString(",")
+                            bahd = loopuj[0]
+                        }
+                        strings.append(bahd)
+                    }
+                    
+                }
+                
+                //class links start after My Workspace tab
+                if !saveLinksAsClasses && text == "My Workspace" {
+                    saveLinksAsClasses = true
+                }
+                    
+                else if saveLinksAsClasses {
+                    //find the end of the class links
+                    if text == "" || text.hasPrefix("\n") || text == "Switch to Full View" {
+                        break
+                    }
+                    
+                    //show the short-form name unless there would be duplicates
+                    let newClass = Class(fromElement: link)
+                    newClass.isActive = true
+                    for otherClass in classes {
+                        if otherClass.name.hasPrefix(newClass.name) {
+                            newClass.useFullName()
+                            otherClass.useFullName()
+                        }
+                    }
+                    classes.append(newClass)
+                }
+            }
+        }
+        return strings*/
     }
     
     func checkIfHasNoClasses() {
