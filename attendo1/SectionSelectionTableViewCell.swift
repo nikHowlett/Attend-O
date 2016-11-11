@@ -14,10 +14,13 @@ class SectionSelectionTableViewCell: UITableViewCell {
     
     @IBOutlet weak var classLabel: UILabel!
     
+    lazy var num: Int = 0
+    
     var viewController : UIViewController!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        sectionButton.tag = 0
         // Initialization code
     }
 

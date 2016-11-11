@@ -22,6 +22,7 @@ class TSReader {
     var initialPage: HTMLDocument? = nil
     var actuallyHasNoClasses = false
     var sectioniers: [String] = []
+    var coursepromtper: [String] = []
     
     init(username: String, password: String, initialPage: HTMLDocument?) {
         self.username = username
@@ -54,6 +55,7 @@ class TSReader {
         }
         var strings: [String] = []
         var classes: [Class] = []
+        //var coursePromtStringArray: [String] = []
         var saveLinksAsClasses: Bool = false
         
         defer {
@@ -107,10 +109,28 @@ class TSReader {
                 }
             }
         }
-        
+        //coursepromtper = coursePromtStringArray
         self.classes = classes
         sectioniers = strings
         return classes
+    }
+    
+    func getCoursePromt(sectionsOrTwo: [String]) -> [String] {
+        var classStringArray = self.classes
+        var endall: [String] = []
+        for (var jk = 0; jk < classStringArray?.count; jk++) {
+            var addHypthens = ""
+            if sectionsOrTwo[jk] == "" {
+                addHypthens = "\(classStringArray![jk])"
+            } else {
+                addHypthens = "\(classStringArray![jk]) \(sectionsOrTwo[jk])"
+            }
+            addHypthens.stringByReplacingOccurrencesOfString(" ", withString: "-")
+            //addHypthens = addHypthens.replacingOccurrences(of: " ", with: "-")
+            endall.append(addHypthens)
+        }
+        coursepromtper = endall
+        return coursepromtper
     }
     func getActiveSections() -> [String] {
         return sectioniers

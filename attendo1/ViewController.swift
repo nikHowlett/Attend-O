@@ -10,6 +10,7 @@ import UIKit
 import UIKit
 import CoreData
 import QuartzCore
+import SwiftyJSON
 //AVCaptureMetadataOutputObjectsDelegate
 var TSAuthenticatedReader2: TSReader!
 let TSLogoutNotification2 = "edu.gatech.cal.logout"
@@ -22,6 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordtextfield: UITextField!
     var classes1: [Class]?
     var sections1: [String]?
+    var Jigalo: [String]?
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
     }
@@ -172,8 +174,23 @@ class ViewController: UIViewController {
             }
             
             do {
+                /*if let swifteejason = try JSON(data!) {
+                print("JSON: \(swifteejason)")
+                }*/
                 if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
                     print("Response: \(json)")
+                    let swiftee = JSON(data: data!)
+                    print("JSON: \(swiftee)")
+                    print("JSON[userExists] : \(swiftee["userExists"])")
+                    if let userName = swiftee[0]["userExists"].string {
+                        let userbool = swiftee[0]["userExists"].bool
+                        //print("userExists: \(userName)")
+                        print("equal to false bool")
+                        let homie = (userName == "False")
+                        print("equal to false string \(homie)")
+                        let john = (userbool == false)
+                        
+                    }
                     
                     //if userexits is false, then go to userSetup
                     //if true, pull classes from database
@@ -234,30 +251,67 @@ class ViewController: UIViewController {
             loadAttempt += 1
             classes = reader.getActiveClasses()
             sections = reader.getActiveSections()
+            
             print("below classes")
             print(classes)
-            print("below sections")
+            print("below origSections")
             print(sections)
             print("presentClassesView")
             classes1 = classes
-            var barbie = true
+            sections1 = sections
+            var barbie = false
             var barbieindex = 0
+            var barbiearray: [Int] = []
             //barbie = need to increasesection count becasue of a non-class thing on tsquare
-            for (var k = 0; k < classes1?.count; k += 1) {
+            for (var k = 0; k < classes.count; k += 1) {
                 
-                var spliterator = ("\(classes1?[k])").componentsSeparatedByString(" ")
-                
+                var spliterator = ("\(classes[k])").componentsSeparatedByString(" ")
+                if spliterator[0].containsString("/") {
+                    spliterator = spliterator[0].componentsSeparatedByString("/")
+                }
+                //add case for CS/PSYC 3790 split by / if contains /
                 for (var j = 0; j < GTSubjectPrefixes.count; j += 1) {
                     if spliterator[0] == GTSubjectPrefixes[j] {
-                        barbie = false
-                        barbieindex = k
+                        barbie = true
+                        barbieindex = k + 1 - 1
+                        barbiearray.append(barbieindex)
+                        //barbiearray.arrayByAddingObject(barbieindex)
+                        print("printing barbie index")
+                        print(barbieindex)
                     }
                 }
             }
-            if barbie {
-                sections.insert("", atIndex: barbieindex)
+            for (var kl = 0; kl < classes.count; kl += 1) {
+                if kl >= barbiearray.count {
+                    sections.insert("", atIndex: kl)
+                } else if kl != barbiearray[kl] {
+                    sections.insert("", atIndex: kl)
+                }
             }
+            if sections.count > classes.count {
+                var banana = sections.indexOf("")
+                sections.removeAtIndex(banana!)
+            }
+            print("printing sections14")
+            print(sections)
             sections1 = sections
+            /*if barbie {
+                var sections14: [String] = []
+                for (var jk = 0; jk < sections.count; jk += 1) {
+                    if (barbieindex == jk) {
+                        sections14.append("")
+                    }
+                    sections14.append(sections[jk])
+                }
+                print("printing sections14")
+                print(sections14)
+                sections1 = sections14
+                //sections.insert("", atIndex: barbieindex)
+            }*/
+            print("below new sections")
+            print(sections1!)
+            var coursePromter = reader.getCoursePromt(sections1!)
+            Jigalo = coursePromter
             //self.prepareForS)
             if classes.count == 0 {
                 reader.checkIfHasNoClasses()
@@ -321,6 +375,7 @@ class ViewController: UIViewController {
             tableVC.classes2 = classes1
             tableVC.sections2 = sections1
             tableVC.username = usernametextfield.text!
+            tableVC.coursePromtStringArray = Jigalo
 
         }
         
