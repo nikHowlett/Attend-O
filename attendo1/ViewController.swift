@@ -302,7 +302,10 @@ class ViewController: UIViewController {
             /*if sections.count > classes.count {
              var banana = sections.indexOf("")
              sections.removeAtIndex(banana!)
-             }*/
+             }*//*
+                var banana = sections.indexOf("")
+                sections.removeAtIndex(banana!)
+            }*/
             print("printing sections14")
             print(sections)
             sections1 = sections
