@@ -281,17 +281,18 @@ class ViewController: UIViewController {
                     }
                 }
             }
+            var kl2 = 0
             for (var kl = 0; kl < classes.count; kl += 1) {
-                if kl >= barbiearray.count {
-                    sections.insert("", atIndex: kl)
-                } else if kl != barbiearray[kl] {
+                if kl != barbiearray[kl2] {
+                    kl2 = kl2 - 1
                     sections.insert("", atIndex: kl)
                 }
+                kl2++
             }
-            if sections.count > classes.count {
+            /*if sections.count > classes.count {
                 var banana = sections.indexOf("")
                 sections.removeAtIndex(banana!)
-            }
+            }*/
             print("printing sections14")
             print(sections)
             sections1 = sections
