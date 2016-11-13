@@ -12,12 +12,15 @@ import SwiftyJSON
 class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
 
     var classes2: [Class]?
+    var bitchoni: UIPickerView?
     var sections2: [String]?
     var username: String = "George P. Burdell"
     var items: [String] = ["CS 1332", "CS 2340", "CS 3750"]
     var sectionPerClass: [String] = []
     var coursePromtStringArray: [String]?
     let vw = UIView()
+    var changeIndex = 0
+    var changeSection = "A"
     @IBOutlet weak var theView: UIView!
     
     @IBAction func cellButton(sender: AnyObject) {
@@ -109,8 +112,11 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print(items[indexPath.row])
         print(sections2![indexPath.row])
+        changeIndex = indexPath.row
         //var rhow = indexPath as NSInteger
-        var parameters = ["courses":"\(coursePromtStringArray![indexPath.row])"]
+        var bitchfuck = coursePromtStringArray![indexPath.row].stringByReplacingOccurrencesOfString(" ", withString: "-")
+        var parameters = ["courses":["\(bitchfuck)"]]
+        print(parameters)
         let request = NSMutableURLRequest(URL: NSURL(string:"http://52.41.202.206/api/courseprompt")!)
         let session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
@@ -132,7 +138,9 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
                     print("Response: \(json)")
                     let swiftee = JSON(data: data!)
                     print("JSON: \(swiftee)")
-                    print("JSON[userExists] : \(swiftee["userExists"])")
+                    print("JSON[courses] : \(swiftee["courses"])")
+                    print("JSON: \(swiftee)")
+                    print("JSON[courses][0][section] : \(swiftee["courses"][0]["section"])")
                     if let userName = swiftee[0]["userExists"].string {
                         let userbool = swiftee[0]["userExists"].bool
                         //print("userExists: \(userName)")
@@ -142,10 +150,36 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
                         let john = (userbool == false)
                         
                     }
+                    if let courseBithces = swiftee["courses"].array {
+                        print("courseBithces")
+                        self.sectionPerClass = []
+                        print(courseBithces)
+                        for (var k = 0; k < courseBithces.count; k++) {
+                            print(courseBithces[k]["section"])
+                            self.sectionPerClass.append("\(courseBithces[k]["section"])")
+                        }
+                        
+                        
+                    }
+                    if (self.sectionPerClass.count > 0) {
+                        self.showPickerInActionSheet()
+                    }
+                    /*if let courseBithces = swiftee["courses"].arrayValue as? JSON {
+                        print(courseBithces)
+                        for (var k = 0; k < courseBithces.count; k++) {
+                            print(courseBithces[k]["section"])
+                        }
+                    }
+                    if let courseBithces = swiftee["courses"].arrayObject {
+                        print(courseBithces)
+                        for (var k = 0; k < courseBithces.count; k++) {
+                            print(courseBithces[k]["section"])
+                        }
+                    }*/
                     
                     //if userexits is false, then go to userSetup
                     //if true, pull classes from database
-                    self.showPickerInActionSheet()
+                    
                 } else {
                     let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)// No error thrown, but not NSDictionary
                     print("Error could not parse JSON: \(jsonStr)")
@@ -158,7 +192,7 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         task.resume()
-        showPickerInActionSheet()
+        //showPickerInActionSheet()
         //view.backgroundColor = UIColor(white: 1, alpha: 0.5)
         /*vw.frame = CGRectMake(150, 150, 0, 0)
         vw.backgroundColor = UIColor.redColor()
@@ -188,11 +222,41 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
         view.backgroundColor = UIColor.d*/
 
     }
+    @IBAction func test(sender: AnyObject) {
+        //showPickerInActionSheet()
+        for (var cC = 0; cC < classes2!.count; cC++) {
+            //get Sections
+            /*var parameters = ["courses":["\(bitchfuck)"]]
+            print(parameters)
+            let request = NSMutableURLRequest(URL: NSURL(string:"http://52.41.202.206/api/courseprompt")!)
+            let session = NSURLSession.sharedSession()
+            request.HTTPMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(parameters, options: [])
+            let task = session.dataTaskWithRequest(request) { data, response, error in
+                guard data != nil else {
+                    print("no data found: \(error)")
+                    //alert, having problmes connecting to Attend-O server
+                    return
+                }
+                
+                do {
+                    if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+                        print("Response: \(json)")
+                        let swiftee = JSON(data: data!)
+                        print("JSON: \(swiftee)")
+                        print("JSON[courses] : \(swiftee["courses"])")
+                    }
+                }
+            }*/
+        }
+    }
     func showPickerInActionSheet() {
         var title = "Choose Section"
         var message = "\n\n\n\n\n\n\n\n\n\n";
         var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.ActionSheet);
-        alert.modalInPopover = true;
+        alert.modalInPopover = true
         
         
         //Create a frame (placeholder/wrapper) for the picker and then create the picker
@@ -216,6 +280,7 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
  
         //Add the picker to the alert controller
         alert.view.addSubview(picker);
+        bitchoni = picker
  
         //Create the toolbar view - the view witch will hold our 2 buttons
         var toolFrame = CGRectMake(17, 5, 270, 45);
@@ -241,11 +306,13 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
         var buttonOk: UIButton = UIButton(frame: buttonOkFrame);
         buttonOk.setTitle("Select", forState: UIControlState.Normal);
         buttonOk.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal);
-        toolView.addSubview(buttonOk); //add to the subview
+        buttonOk
+            .addTarget(self, action: "saveSection:", forControlEvents: UIControlEvents.TouchDown)
+        toolView.addSubview(buttonOk) //add to the subview
  
         //Add the tartget. In my case I dynamicly set the target of the select button
         //if(sentBy == "profile"){
-            buttonOk.addTarget(self, action: "saveSection:", forControlEvents: UIControlEvents.TouchDown);
+            //buttonOk.addTarget(self, action: "saveSection:", forControlEvents: UIControlEvents.TouchDown);
         //} else if (sentBy == "user"){
           //  buttonOk.addTarget(self, action: "saveUser:", forControlEvents: UIControlEvents.TouchDown);
         //}
@@ -255,8 +322,12 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
  
         self.presentViewController(alert, animated: true, completion: nil);
     }
-    func saveSection(sender: UIButton, indx: NSInteger){
-        
+    func saveSection(sender: UIButton) {
+        //changeSection = bitchoni.
+        sections2![changeIndex] = changeSection
+        //cell.detailTextLabel?.text = self.sections2![indexPath.row]
+        self.classTable.reloadData()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     func cancelSelection(sender: UIButton){
         print("Cancel");
@@ -277,21 +348,20 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
         return sectionPerClass.count
     }
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        if sections2 != nil {
+        //if sectionPerClass[row]. {
         //    var selectedSection: String = self.profilesList[row] as Profiles;
             //return selectedProfile.profileName;
-            return sections2![row]
-        } else  {
+            return sectionPerClass[row]
+        //} else  {
             
-            return "";
+          //  return "";
             
-        }
-        
+        //}
     }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
             //var choosenProfile: Profiles = profilesList[row] as Profiles
             //self.selectedProfile = choosenProfile.profileName
-        
+        changeSection = sectionPerClass[row]
     }
     /*
     // MARK: - Navigation

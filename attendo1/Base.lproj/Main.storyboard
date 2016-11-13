@@ -1402,12 +1402,21 @@
                                     <outlet property="delegate" destination="Yrg-EB-qIR" id="a9o-hf-axq"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubI-NH-eUc">
+                                <rect key="frame" x="236" y="68" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="test:" destination="Yrg-EB-qIR" eventType="touchUpInside" id="qLc-1h-kdD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CNy-kB-8tO" firstAttribute="leading" secondItem="sE4-bI-eUy" secondAttribute="leading" id="3Vl-Iy-DdT"/>
                             <constraint firstItem="65E-SH-dCr" firstAttribute="leading" secondItem="JKz-KP-2HO" secondAttribute="leading" id="5cS-wB-9TE"/>
                             <constraint firstItem="65E-SH-dCr" firstAttribute="top" secondItem="sE4-bI-eUy" secondAttribute="bottom" constant="8" symbolic="YES" id="8gJ-th-hWz"/>
+                            <constraint firstItem="ubI-NH-eUc" firstAttribute="baseline" secondItem="CNy-kB-8tO" secondAttribute="baseline" id="R3L-MH-dIQ"/>
+                            <constraint firstItem="ubI-NH-eUc" firstAttribute="leading" secondItem="CNy-kB-8tO" secondAttribute="trailing" constant="8" symbolic="YES" id="Rzu-5z-fEg"/>
                             <constraint firstItem="CNy-kB-8tO" firstAttribute="leading" secondItem="JKz-KP-2HO" secondAttribute="leadingMargin" id="XdV-jW-g1I"/>
                             <constraint firstItem="sE4-bI-eUy" firstAttribute="top" secondItem="CNy-kB-8tO" secondAttribute="bottom" constant="8" symbolic="YES" id="g2Z-Sb-jzv"/>
                             <constraint firstItem="CNy-kB-8tO" firstAttribute="top" secondItem="QdZ-EY-UZT" secondAttribute="bottom" constant="8" symbolic="YES" id="ggg-yf-oxA"/>
