@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     var sections1: [String]?
     var Jigalo: [String]?
     var bitchtwoni: [String] = []
+    @IBOutlet weak var ssi: UISwitch!
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
     }
@@ -184,7 +185,12 @@ class ViewController: UIViewController {
                     print("JSON: \(swiftee)")
                     print("JSON[userExists] : \(swiftee["userExists"])")
                     if swiftee["userExists"] {
+                        self.wahooni()
+                        if self.ssi.on {
                         self.performSegueWithIdentifier("newStudent", sender: self)
+                        } else {
+                            self.newCasLogin(newLogin: true)
+                        }
                     } else {
                         self.newCasLogin(newLogin: true)
                     }
@@ -433,12 +439,14 @@ class ViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "newStudent" {
-            wahooni()
-            let navVC = segue.destinationViewController as! UINavigationController
             
+            let navVC = segue.destinationViewController as! UINavigationController
+            let choo = navVC.topViewController as! newStudentViewController
             let tableVC = navVC.viewControllers.first as! newStudentViewController
             
             //tableVC.classes2 = classes1
+            choo.username = self.usernametextfield.text!
+            choo.classes2 = self.bitchtwoni
             tableVC.username = self.usernametextfield.text!
             tableVC.classes2 = self.bitchtwoni
             //if let classes = segue.destinationViewController as? newStudentViewController {

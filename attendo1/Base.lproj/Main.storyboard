@@ -89,6 +89,7 @@
                     </view>
                     <connections>
                         <outlet property="passwordtextfield" destination="Bvp-2f-38J" id="S8k-dO-taH"/>
+                        <outlet property="ssi" destination="Skp-sT-Btf" id="3sa-x8-UWI"/>
                         <outlet property="usernametextfield" destination="CVU-zu-Qch" id="E66-hD-ojF"/>
                         <segue destination="b9Q-FA-gBB" kind="show" identifier="studentLogin" id="cZY-Xe-9HI"/>
                         <segue destination="2UD-2U-UtD" kind="show" identifier="teacherLogin" id="09W-eA-WKZ"/>
@@ -1320,6 +1321,13 @@
                                     <outlet property="delegate" destination="ggG-5M-AcZ" id="Anz-jz-Hg4"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wd-Wr-Prb">
+                                <rect key="frame" x="240" y="68" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="fdf:" destination="ggG-5M-AcZ" eventType="touchUpInside" id="t5H-Bi-4j2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
