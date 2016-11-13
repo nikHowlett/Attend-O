@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     var classes1: [Class]?
     var sections1: [String]?
     var Jigalo: [String]?
+    var bitchtwoni: [String] = []
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
     }
@@ -35,7 +36,7 @@ class ViewController: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -53,16 +54,16 @@ class ViewController: UIViewController {
                     //let loginCount = 29//
                     print("this shit worked")
                     
-                        //NSUserDefaults.standardUserDefaults().integerForKey(TSLoginCountKey)
+                    //NSUserDefaults.standardUserDefaults().integerForKey(TSLoginCountKey)
                     /*NSUserDefaults.standardUserDefaults().setInteger(loginCount + 1, forKey: TSLoginCountKey)*/
                     
                     TSAuthenticatedReader2 = reader
                     self.presentClassesView(reader)
                     //self.performSegueWithIdentifier("newStudent", sender: self)
                     /*self.animateFormSubviewsWithDuration(0.5, hidden: false)
-                    self.animateActivityIndicator(on: false)
-                    self.setSavedCredentials(correct: true)
-                    self.presentClassesView(reader)*/
+                     self.animateActivityIndicator(on: false)
+                     self.setSavedCredentials(correct: true)
+                     self.presentClassesView(reader)*/
                 }
                     
                 else {
@@ -71,8 +72,8 @@ class ViewController: UIViewController {
                     print("password incorrect")
                     /*shakeView(self.formView)*/
                     /*self.animateFormSubviewsWithDuration(0.5, hidden: false)
-                    self.animateActivityIndicator(on: false)
-                    self.setSavedCredentials(correct: false)*/
+                     self.animateActivityIndicator(on: false)
+                     self.setSavedCredentials(correct: false)*/
                 }
                 
             })
@@ -117,40 +118,40 @@ class ViewController: UIViewController {
     
     @IBAction func printTest(sender: AnyObject) {
         /*var classes: [Class] = []
-        var loadAttempt = 0
-        while classes.count == 0 && loadAttempt < 4 && !reader.actuallyHasNoClasses {
-            loadAttempt += 1
-            classes = reader.getActiveClasses()
-            print(classes)
-            print("presentClassesView")
-            classes1 = classes
-            //self.prepareForS)
-            if classes.count == 0 {
-                reader.checkIfHasNoClasses()
-            }
-            
-            if loadAttempt > 2 {
-                HttpClient.clearCookies()
-            }
-        }
-        
-        if loadAttempt >= 4 {
-            //present an alert and then exit the app if the classes aren't loading
-            //this means a failed authentication looked like it passed
-            //AKA I have no idea what happened
-            let message = "This happens every now and then. Please restart Attend-O and try again. If this keeps happening, please send an email to nhowlett6@gatech.edu"
-            let alert = UIAlertController(title: "There was a problem logging you in.", message: message, preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "Restart", style: .Default, handler: { _ in
-                //crash
-                let null: Int! = nil
-                //null.threeCharacterString()
-            }))
-            self.presentViewController(alert, animated: true, completion: nil)
-            //self.setSavedCredentials(correct: false)
-            return
-        }*/
+         var loadAttempt = 0
+         while classes.count == 0 && loadAttempt < 4 && !reader.actuallyHasNoClasses {
+         loadAttempt += 1
+         classes = reader.getActiveClasses()
+         print(classes)
+         print("presentClassesView")
+         classes1 = classes
+         //self.prepareForS)
+         if classes.count == 0 {
+         reader.checkIfHasNoClasses()
+         }
+         
+         if loadAttempt > 2 {
+         HttpClient.clearCookies()
+         }
+         }
+         
+         if loadAttempt >= 4 {
+         //present an alert and then exit the app if the classes aren't loading
+         //this means a failed authentication looked like it passed
+         //AKA I have no idea what happened
+         let message = "This happens every now and then. Please restart Attend-O and try again. If this keeps happening, please send an email to nhowlett6@gatech.edu"
+         let alert = UIAlertController(title: "There was a problem logging you in.", message: message, preferredStyle: .Alert)
+         alert.addAction(UIAlertAction(title: "Restart", style: .Default, handler: { _ in
+         //crash
+         let null: Int! = nil
+         //null.threeCharacterString()
+         }))
+         self.presentViewController(alert, animated: true, completion: nil)
+         //self.setSavedCredentials(correct: false)
+         return
+         }*/
     }
-
+    
     @IBAction func Login(sender: AnyObject) {
         print("login button pressed")
         var parameters = ["Username":"Admin", "Password":"123","DeviceId":"87878"] as Dictionary<String, String>
@@ -175,26 +176,35 @@ class ViewController: UIViewController {
             
             do {
                 /*if let swifteejason = try JSON(data!) {
-                print("JSON: \(swifteejason)")
-                }*/
+                 print("JSON: \(swifteejason)")
+                 }*/
                 if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
                     print("Response: \(json)")
                     let swiftee = JSON(data: data!)
                     print("JSON: \(swiftee)")
                     print("JSON[userExists] : \(swiftee["userExists"])")
-                    if let userName = swiftee[0]["userExists"].string {
+                    if swiftee["userExists"] {
+                        self.performSegueWithIdentifier("newStudent", sender: self)
+                    } else {
+                        self.newCasLogin(newLogin: true)
+                    }
+                    /*if let userName = swiftee[0]["userExists"].string {
                         let userbool = swiftee[0]["userExists"].bool
                         //print("userExists: \(userName)")
                         print("equal to false bool")
                         let homie = (userName == "False")
                         print("equal to false string \(homie)")
                         let john = (userbool == false)
-                        
-                    }
+                        if john {
+                            self.newCasLogin(newLogin: true)
+                        } else {
+                            self.performSegueWithIdentifier("newStudent", sender: self)
+                        }
+                    }*/
                     
                     //if userexits is false, then go to userSetup
                     //if true, pull classes from database
-                    self.newCasLogin(newLogin: true)
+                    
                 } else {
                     let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)// No error thrown, but not NSDictionary
                     print("Error could not parse JSON: \(jsonStr)")
@@ -210,24 +220,24 @@ class ViewController: UIViewController {
         
         //old code for demos, prototypes and such
         /*
-        if usernametextfield.text == "abowd" {
-             self.performSegueWithIdentifier("teacherLogin", sender: self)
-        } else if usernametextfield.text == "sampleTeacher" {
-            self.performSegueWithIdentifier("newTeacher", sender: self)
-        } else if usernametextfield.text == "teacher" {
-            self.performSegueWithIdentifier("teacher", sender: self)
-        } else if usernametextfield.text == "student" {
-            self.performSegueWithIdentifier("newStudent", sender: self)
-        } else if usernametextfield.text == "testAPI" {
-            self.performSegueWithIdentifier("testAPI", sender: self)
-        } else {
-            self.performSegueWithIdentifier("studentLogin", sender: self)
-        }*/
+         if usernametextfield.text == "abowd" {
+         self.performSegueWithIdentifier("teacherLogin", sender: self)
+         } else if usernametextfield.text == "sampleTeacher" {
+         self.performSegueWithIdentifier("newTeacher", sender: self)
+         } else if usernametextfield.text == "teacher" {
+         self.performSegueWithIdentifier("teacher", sender: self)
+         } else if usernametextfield.text == "student" {
+         self.performSegueWithIdentifier("newStudent", sender: self)
+         } else if usernametextfield.text == "testAPI" {
+         self.performSegueWithIdentifier("testAPI", sender: self)
+         } else {
+         self.performSegueWithIdentifier("studentLogin", sender: self)
+         }*/
         /*if TeacherStudent.on {
-            self.performSegueWithIdentifier("teacherLogin", sender: self)
-        } else {
-            self.performSegueWithIdentifier("studentLogin", sender: self)
-        }*/
+         self.performSegueWithIdentifier("teacherLogin", sender: self)
+         } else {
+         self.performSegueWithIdentifier("studentLogin", sender: self)
+         }*/
     }
     
     func DismissKeyboard(){
@@ -241,7 +251,7 @@ class ViewController: UIViewController {
     }
     
     
-
+    
     func presentClassesView(reader: TSReader) {
         //tapRecognizer.enabled = false
         var classes: [Class] = []
@@ -281,33 +291,34 @@ class ViewController: UIViewController {
                     }
                 }
             }
+            var kl2 = 0
             for (var kl = 0; kl < classes.count; kl += 1) {
-                if kl >= barbiearray.count {
-                    sections.insert("", atIndex: kl)
-                } else if kl != barbiearray[kl] {
+                if kl != barbiearray[kl2] {
+                    kl2 = kl2 - 1
                     sections.insert("", atIndex: kl)
                 }
+                kl2++
             }
-            if sections.count > classes.count {
-                var banana = sections.indexOf("")
-                sections.removeAtIndex(banana!)
-            }
+            /*if sections.count > classes.count {
+             var banana = sections.indexOf("")
+             sections.removeAtIndex(banana!)
+             }*/
             print("printing sections14")
             print(sections)
             sections1 = sections
             /*if barbie {
-                var sections14: [String] = []
-                for (var jk = 0; jk < sections.count; jk += 1) {
-                    if (barbieindex == jk) {
-                        sections14.append("")
-                    }
-                    sections14.append(sections[jk])
-                }
-                print("printing sections14")
-                print(sections14)
-                sections1 = sections14
-                //sections.insert("", atIndex: barbieindex)
-            }*/
+             var sections14: [String] = []
+             for (var jk = 0; jk < sections.count; jk += 1) {
+             if (barbieindex == jk) {
+             sections14.append("")
+             }
+             sections14.append(sections[jk])
+             }
+             print("printing sections14")
+             print(sections14)
+             sections1 = sections14
+             //sections.insert("", atIndex: barbieindex)
+             }*/
             print("below new sections")
             print(sections1!)
             var coursePromter = reader.getCoursePromt(sections1!)
@@ -345,27 +356,94 @@ class ViewController: UIViewController {
         
         //newStudentViewController.classes2 = classes
         //newStudentViewController.reloadTable()
-         
-         //open to the shortcut item if there is one queued
-         /*if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+        
+        //open to the shortcut item if there is one queued
+        /*if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
          delegate.openShortcutItemIfPresent()
          }*/
-         
-         //animatePresentClassesView()
-         /*classesViewController.loadAnnouncements(reloadClasses: false, withInlineActivityIndicator: true)*/
+        
+        //animatePresentClassesView()
+        /*classesViewController.loadAnnouncements(reloadClasses: false, withInlineActivityIndicator: true)*/
+    }
+    
+    func wahooni() {
+        var parameters = ["username":"\(usernametextfield.text!)"]
+        print(parameters)
+        let request = NSMutableURLRequest(URL: NSURL(string:"http://52.41.202.206/api/mycourses")!)
+        let session = NSURLSession.sharedSession()
+        request.HTTPMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(parameters, options: [])
+        let task = session.dataTaskWithRequest(request) { data, response, error in
+            guard data != nil else {
+                print("no data found: \(error)")
+                //alert, having problmes connecting to Attend-O server
+                return
+            }
+            
+            do {
+                if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+                    print("Response: \(json)")
+                    let swiftee = JSON(data: data!)
+                    print("JSON: \(swiftee)")
+                    print("JSON[userExists] : \(swiftee["userExists"])")
+                    print("JSON: \(swiftee)")
+                    if let msgF = swiftee["userExists"].bool {
+                        if msgF == true {
+                            if let courseArray = swiftee["courses"].array {
+                                var beachie: [String] = []
+                                for (var k = 0; k < courseArray.count; k++) {
+                                    beachie.append(courseArray[k]["course"].string!)
+                                }
+                                if beachie.count > 0 {
+                                    self.bitchtwoni = beachie
+                                }
+                                print("below supposed to be class strings")
+                                print(self.bitchtwoni)
+                            }
+                            
+                            
+                        }
+                    }
+                    
+                    /*{
+                     "err": false,
+                     "msg": "Created User"
+                     }*/
+                    //"setupComplete"
+                    
+                } else {
+                    let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)// No error thrown, but not NSDictionary
+                    print("Error could not parse JSON: \(jsonStr)")
+                }
+            } catch let parseError {
+                print(parseError)// Log the error thrown by `JSONObjectWithData`
+                let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print("Error could not parse JSON: '\(jsonStr)'")
+            }
+        }
+        //let fjfj = segue.destinationViewController.
+        
+        task.resume()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "newStudent" {
-            //if let classes = segue.destinationViewController as? newStudentViewController {
-                //classes.classes2 = classes1
-            //}
+            wahooni()
             let navVC = segue.destinationViewController as! UINavigationController
             
             let tableVC = navVC.viewControllers.first as! newStudentViewController
             
-            tableVC.classes2 = classes1
-            tableVC.username = usernametextfield.text!
+            //tableVC.classes2 = classes1
+            tableVC.username = self.usernametextfield.text!
+            tableVC.classes2 = self.bitchtwoni
+            //if let classes = segue.destinationViewController as? newStudentViewController {
+            //classes.classes2 = classes1
+            //}
+            
+            
+            
         } else if segue.identifier == "firstTimer" {
             let navVC = segue.destinationViewController as! UINavigationController
             
@@ -376,14 +454,14 @@ class ViewController: UIViewController {
             tableVC.sections2 = sections1
             tableVC.username = usernametextfield.text!
             tableVC.coursePromtStringArray = Jigalo
-
+            
         }
         
-            /*print(TSAuthenticatedReader2.getActiveClasses())
-             print("classesprinted")
-             classes1 = classes.classes2*/
-            //classes.loginController = self
-            //classesViewController = classes
+        /*print(TSAuthenticatedReader2.getActiveClasses())
+         print("classesprinted")
+         classes1 = classes.classes2*/
+        //classes.loginController = self
+        //classesViewController = classes
         
         /*if let browser = segue.destinationViewController as? TSWebView {
          browser.loginController = self
@@ -466,6 +544,5 @@ class ViewController: UIViewController {
         "RUSS",
         "SOC",
         "SPAN"]
-
+    
 }
-

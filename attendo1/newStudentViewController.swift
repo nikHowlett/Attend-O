@@ -15,7 +15,7 @@ class newStudentViewController: UIViewController, UITableViewDelegate, UITableVi
     var groups: [String] = ["A1", "F3", "B2"]
     
     var theClass = "CS 1332"
-    var classes2: [Class]?
+    var classes2: [String] = []
     var username: String = "George P. Burdell"
     
     @IBOutlet weak var welcomeString: UILabel!
@@ -28,11 +28,11 @@ class newStudentViewController: UIViewController, UITableViewDelegate, UITableVi
         self.title = "Select a Class"
         print(classes2)
         print("classes printed")
-        if classes2?.count > 0 {
+        if classes2.count > 0 {
             var be = 0
             items = []
-            while be < classes2?.count {
-                items.append("\(classes2![be])")
+            while be < classes2.count {
+                items.append("\(classes2[be])")
                 be = be + 1
             }
             welcomeString.text! = "Welcome \(username)"

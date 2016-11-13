@@ -1409,6 +1409,13 @@
                                     <action selector="test:" destination="Yrg-EB-qIR" eventType="touchUpInside" id="qLc-1h-kdD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWp-EC-6Rc">
+                                <rect key="frame" x="259" y="97" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="doubleBitch:" destination="Yrg-EB-qIR" eventType="touchUpInside" id="LvZ-gu-Zb3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
