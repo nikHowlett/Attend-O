@@ -24,8 +24,10 @@ class newStudentViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     var items: [String] = ["CS 1332", "CS 2340", "CS 3750"]
     var groups: [String] = ["A1", "F3", "B2"]
+    var cRNs: [String] = ["12345" , "22345", "32345"]
     
     var theClass = "CS 1332"
+    var theCRN = "82335"
     var classes2: [String] = []
     var bitchtwoni: [String] = []
     var username: String = "George P. Burdell"
@@ -82,6 +84,7 @@ class newStudentViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         theClass = items[indexPath.row]
+        theCRN = cRNs[indexPath.row]
         self.performSegueWithIdentifier("segueTest", sender: self)
     }
     
@@ -89,9 +92,9 @@ class newStudentViewController: UIViewController, UITableViewDelegate, UITableVi
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "segueTest") {
             let svc = segue.destinationViewController as! studentCalViewController;
-            
+            svc.username = self.username
             svc.toPass = theClass
-            
+            svc.thisCrn = theCRN
         }
     }
     
@@ -122,17 +125,27 @@ class newStudentViewController: UIViewController, UITableViewDelegate, UITableVi
                         if msgF == true {
                             if let courseArray = swiftee["courses"].array {
                                 var beachie: [String] = []
+                                var tootie: [String] = []
                                 for (var k = 0; k < courseArray.count; k++) {
                                     beachie.append(courseArray[k]["course"].string!)
+                                    var johnson = courseArray[k]["crn"].double!
+                                    
+                                    var myIntValue = Int(johnson)
+                                    
+                                    tootie.append("\(myIntValue)")
                                 }
                                 if beachie.count > 0 {
                                     self.classes2 = beachie
                                     self.bitchtwoni = beachie
                                     self.items = beachie
+                                    self.cRNs = tootie
                                 }
                                 print("below supposed to be class strings")
                                 //classes2 = bitchtwoni
                                 print(self.bitchtwoni)
+                                print("below supposed to be crn strings")
+                                print(self.cRNs)
+
                             }
                             
                             

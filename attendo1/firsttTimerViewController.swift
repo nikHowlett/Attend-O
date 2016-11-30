@@ -16,6 +16,7 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
     var sections2: [String]?
     var bitchtwoni: [String]?
     var username: String = "George P. Burdell"
+    var wascreateduser: Bool = false
     var items: [String] = ["CS 1332", "CS 2340", "CS 3750"]
     var sectionPerClass: [String] = []
     var coursePromtStringArray: [String]?
@@ -223,7 +224,7 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
             let tableVC = segue.destinationViewController as! newStudentViewController
             
             //do post to get classes
-            var parameters = ["username":"\(username)"]
+            /*var parameters = ["username":"\(username)"]
             print(parameters)
             let request = NSMutableURLRequest(URL: NSURL(string:"http://52.41.202.206/api/mycourses")!)
             let session = NSURLSession.sharedSession()
@@ -276,9 +277,9 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
                     let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
                     print("Error could not parse JSON: '\(jsonStr)'")
                 }
-            }
-            tableVC.classes2 = bitchtwoni!
-            task.resume()
+            }*/
+            tableVC.classes2 = self.bitchtwoni!
+            //task.resume()
             tableVC.username = username
             //let svc = segue.destinationViewController as! studentCalViewController;
             
@@ -338,17 +339,18 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
                         print("JSON[courses] : \(swiftee["courses"])")
                         //print("JSON: \(swiftee)")
                         print("JSON[courses][0][section] : \(swiftee["courses"][0]["section"])")
+                        print("JSON[courses][sections] : \(swiftee["courses"]["sections"])")
                         if let courseBithces = swiftee["courses"].array {
                             print("courseBithces")
                             print(courseBithces)
                             if courseBithces.count > 0 {
                                 
                                 for (var k = 0; k < courseBithces.count; k++) {
-                                    print(courseBithces[k]["section"])
-                                    if courseBithces[k]["section"].string == self.sections2![cC] {
-                                        self.cRNs.append(courseBithces[k]["crn"].string!)
-                                        print("appending: \(courseBithces[k]["crn"].string!)")
-                                        print("with corresponding section\(courseBithces[k]["section"].string!)")
+                                    print(courseBithces[0]["sections"][k])
+                                    if courseBithces[0]["sections"][k]["section"].string == self.sections2![cC] {
+                                        self.cRNs.append("\(courseBithces[0]["sections"][k]["crn"])")
+                                        print("appending: \(courseBithces[0]["sections"][k]["crn"])")
+                                        //print("with corresponding section\(courseBithces[k]["section"].string!)")
                                         print("printing crns")
                                         print(self.cRNs)
                                     }
@@ -412,8 +414,71 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
                         print("JSON[msg] : \(swiftee["msg"])")
                         print("JSON: \(swiftee)")
                         if let msgF = swiftee["msg"].string {
-                            if msgF == "Created User" {
-                                self.performSegueWithIdentifier("setupComplete", sender: self)
+                            //if msgF == "Created User" {
+                            if (swiftee["err"].bool != true) {
+                                print("wascreateduser")
+                                self.wascreateduser = true
+                            }
+                        }
+                    } else {
+                        let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)// No error thrown, but not NSDictionary
+                        print("Error could not parse JSON: \(jsonStr)")
+                    }
+                } catch let parseError {
+                    print(parseError)// Log the error thrown by `JSONObjectWithData`
+                    let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print("Error could not parse JSON: '\(jsonStr)'")
+                }
+                
+            }
+            
+            task.resume()
+        }
+        self.seeifuser()
+
+    }
+    @IBAction func ffff(sender: AnyObject) {
+        seeifuser()
+    }
+    func seeifuser() {
+        if self.wascreateduser == true {
+            var parameters = ["username":"\(self.username)"]
+            print(parameters)
+            let request = NSMutableURLRequest(URL: NSURL(string:"http://52.41.202.206/api/mycourses")!)
+            let session = NSURLSession.sharedSession()
+            request.HTTPMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(parameters, options: [])
+            let task = session.dataTaskWithRequest(request) { data, response, error in
+                guard data != nil else {
+                    print("no data found: \(error)")
+                    //alert, having problmes connecting to Attend-O server
+                    return
+                }
+                
+                do {
+                    if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+                        print("Response: \(json)")
+                        let swiftee = JSON(data: data!)
+                        print("JSON: \(swiftee)")
+                        print("JSON[userExists] : \(swiftee["userExists"])")
+                        print("JSON: \(swiftee)")
+                        if let msgF = swiftee["userExists"].bool {
+                            if msgF == true {
+                                if let courseArray = swiftee["courses"].array {
+                                    var beachie: [String] = []
+                                    for (var k = 0; k < courseArray.count; k++) {
+                                        beachie.append(courseArray[k]["course"].string!)
+                                    }
+                                    if beachie.count > 0 {
+                                        self.bitchtwoni = beachie
+                                    }
+                                    print("below supposed to be class strings")
+                                    print(self.bitchtwoni)
+                                }
+                                
+                                
                             }
                         }
                         
@@ -432,13 +497,20 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
                     let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
                     print("Error could not parse JSON: '\(jsonStr)'")
                 }
-                
             }
+            //let fjfj = segue.destinationViewController.
             
             task.resume()
+            self.performSegueWithIdentifier("setupComplete", sender: self)
         }
-
     }
+    
+    /*{
+     "err": false,
+     "msg": "Created User"
+     }*/
+    //"setupComplete"
+    
     func showPickerInActionSheet() {
         var title = "Choose Section"
         var message = "\n\n\n\n\n\n\n\n\n\n";

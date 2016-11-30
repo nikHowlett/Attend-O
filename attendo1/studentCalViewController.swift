@@ -5,11 +5,13 @@
 //  Created by Nik Howlett on 4/10/16.
 //  Copyright © 2016 NikHowlett. All rights reserved.
 //
+//
 
 import UIKit
 import NSDate_Escort
 import MJCalendar
 import HexColors
+import SwiftyJSON
 
 class studentCalViewController: UIViewController, MJCalendarViewDelegate {
     @IBOutlet weak var classLabel: UILabel!
@@ -17,9 +19,37 @@ class studentCalViewController: UIViewController, MJCalendarViewDelegate {
     @IBOutlet weak var calendarView: MJCalendarView!
     var toPass = "CS 1332"
     var tDate = "April 16"
+    var cRNofClass = "82345"
+    var thisCrn = "81335"
+    var tempCRN = "88336"
+    var helpJson: [String : String]?
+    var newBool = false
+    var thisLocation = "Klaus 853"
+    var locations: [String] = ["Coll of Computing 101", "MRDC 2404"]
+    let daysRange = 365
+    var username: String = "San Juan"
     @IBOutlet weak var calendarViewHeight: NSLayoutConstraint!
     var dayColors = Dictionary<NSDate, DayColors>()
+    
+    @IBOutlet weak var locationLbel: UILabel!
+    
+    @IBAction func rotateLocation(sender: AnyObject) {
+        if locationLbel.text != "MRDC 2404" {
+            locationLbel.text = locations[1]
+        } else {
+            locationLbel.text = locations[0]
+        }
+    }
+    
+    func animateToPeriod(period: MJConfiguration.PeriodType) {
+        self.calendarView.animateToPeriodType(period, duration: 0.2, animations: { (calendarHeight) -> Void in
+            // In animation block you can add your own animation. To adapat UI to new calendar height you can use calendarHeight param
+            self.calendarViewHeight.constant = calendarHeight
+            self.view.layoutIfNeeded()
+            }, completion: nil)
+    }
 /*
+     
     @IBOutlet weak var classLabel: UILabel!
     
     var toPass = "CS 1330"
@@ -52,9 +82,9 @@ class studentCalViewController: UIViewController, MJCalendarViewDelegate {
     
     var colors: [UIColor] {
         return [
-            UIColor(netHex: 0xf6980b),
-            //UIColor(hexString: "#2081D9"),
-            UIColor(netHex: 0x2fbd8f),
+            UIColor(netHex: 0xf6980b),//orange/yellow
+            //UIColor(hexString: "#2081D9"),blue
+            UIColor(netHex: 0x2fbd8f),//green
             //UIColor(netHex: 0xF6980B),
             //UIColor(netHex: 0x2081D9),
             //UIColor(netHex: 0x2FBD8F),
@@ -75,6 +105,7 @@ class studentCalViewController: UIViewController, MJCalendarViewDelegate {
         self.dateFormatter = NSDateFormatter()
         self.setTitleWithDate(NSDate())
         classLabel.text = toPass
+        
         
         // Do any additional setup after loading the view.
     }
@@ -156,6 +187,9 @@ class studentCalViewController: UIViewController, MJCalendarViewDelegate {
     func setUpDays() {
         for i in 0...self.daysRange {
             let day = self.dateByIndex(i)
+            var j = 5
+            var k = 0
+            if (j == k) {
             if !day.isTypicallyWeekend() {
             //if (i % 7) != 6  {
                 ///if (i % 7) != 0 {
@@ -169,6 +203,7 @@ class studentCalViewController: UIViewController, MJCalendarViewDelegate {
 //                self.dayColors[day] = nil
  //           }
                 //}
+            }
             }
         }
     }
@@ -209,7 +244,136 @@ class studentCalViewController: UIViewController, MJCalendarViewDelegate {
         self.monthNameLabel.text = dateFormatter.stringFromDate(date)
     }
     
-   
+    @IBAction func freshCalBut(sender: AnyObject) {
+        self.newBool = true
+        updateCal()
+    }
+    
+    func updateCal() {
+        if self.newBool == true {
+            self.newBool = false
+            //get array of attendance data
+            //var parameters = ["crn": self.thisCrn, "username":"\(self.username)"]
+            //var parameters = ["crn": self.thisCrn, "username":"\(self.username)"]
+            
+            var parameters = ["username":"\(self.username)", "crn": self.thisCrn] as Dictionary<String, String>
+            
+            print(parameters)
+            //parameters = self.helpJson!
+            //print(parameters)
+            let request = NSMutableURLRequest(URL: NSURL(string:"http://52.41.202.206/api/attendanceData")!)
+            let session = NSURLSession.sharedSession()
+            request.HTTPMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(parameters, options: [])
+            //session.
+            let task = session.dataTaskWithRequest(request) { data, response, error in
+                guard data != nil else {
+                    print("no data found: \(error)")
+                    //alert, having problmes connecting to Attend-O server
+                    return
+                }
+                print("in session")
+                do {
+                    if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+                        print("Response: \(json)")
+                        let swiftee = JSON(data: data!)
+                        print("JSON: \(swiftee)")
+                        //go through array of dates
+                        //get array
+                        var dateArray = swiftee["attendance"][0][0]["time"]
+                        var dateArray2 = swiftee["attendance"][0]["time"]
+                        print("dateArray1 \(dateArray)")
+                        print("dateArray2 \(dateArray2)")
+                        if (dateArray2 != nil) {
+                            var stringDate = "\(dateArray2)"
+                            stringDate = stringDate.stringByPaddingToLength(10, withString: stringDate, startingAtIndex: 0)
+                            print("stringDate")
+                            print(stringDate)
+                            var todaysDate:NSDate = NSDate()
+                            var dateFormatter:NSDateFormatter = NSDateFormatter()
+                            //dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+                            dateFormatter.dateFormat = "yyyy-MM-dd"
+                            var DateInFormat:String = dateFormatter.stringFromDate(todaysDate)
+                            print("Date in format")
+                            print(DateInFormat)
+                            print("DateInFormat==StringDate = \(DateInFormat == stringDate)")
+                            if (DateInFormat == stringDate) {
+                                //turn this color green
+                                for i in 0...self.daysRange {
+                                    let day = self.dateByIndex(i)
+                                        if !day.isTypicallyWeekend() {
+                                            var stringDate2 = "\(day)"
+                                            stringDate2 = stringDate2.stringByPaddingToLength(10, withString: stringDate2, startingAtIndex: 0)
+                                            if DateInFormat == stringDate2 {
+                                                
+                                            
+                                            let day = self.dateByIndex(i)
+                                            var color = UIColor(netHex: 0x2fbd8f)
+                                            let dayColor = DayColors(backgroundColor: color, textColor: UIColor.whiteColor())
+                                            self.dayColors[day] = dayColor
+                                            }
+                                    }
+                                }
+                            } else {
+                                for i in 0...self.daysRange {
+                                    let day = self.dateByIndex(i)
+                                    if !day.isTypicallyWeekend() {
+                                        var stringDate2 = "\(day)"
+                                        stringDate2 = stringDate2.stringByPaddingToLength(10, withString: stringDate2, startingAtIndex: 0)
+                                        if DateInFormat == stringDate2 {
+                                            
+                                            
+                                            let day = self.dateByIndex(i)
+                                            var color = UIColor(netHex: 0xf6980b)
+                                            let dayColor = DayColors(backgroundColor: color, textColor: UIColor.whiteColor())
+                                            self.dayColors[day] = dayColor
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                } catch let parseError {
+                    print(parseError)// Log the error thrown by `JSONObjectWithData`
+                    let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print("Error could not parse JSON: '\(jsonStr)'")
+                }
+            }
+            task.resume()
+            self.calendarView.reloadView()
+            //self.
+        } else {
+            print("no data")
+        }
+        
+
+            //if any of the dates match,
+                //if the locations match, 
+                    //put the respective calendar dates as green
+                //else put the RCD as yellow.
+        
+        /*for i in 0...self.daysRange {
+            let day = self.dateByIndex(i)
+            if !day.isTypicallyWeekend() {
+                //if (i % 7) != 6  {
+                ///if (i % 7) != 0 {
+                let day = self.dateByIndex(i)
+                //if
+                let randColor = self.randColor()
+                //{
+                let dayColors = DayColors(backgroundColor: randColor!, textColor: UIColor.whiteColor())
+                self.dayColors[day] = dayColors
+                //            } else {
+                //                self.dayColors[day] = nil
+                //           }
+                //}
+            }
+        }*/
+        //task.resume()
+    }
     
     func calendar(calendarView: MJCalendarView, didSelectDate date: NSDate) {
         print(date)
@@ -325,16 +489,71 @@ class studentCalViewController: UIViewController, MJCalendarViewDelegate {
         self.animateToPeriod(.OneWeek)
     }
     
-    func animateToPeriod(period: MJConfiguration.PeriodType) {
-        self.calendarView.animateToPeriodType(period, duration: 0.2, animations: { (calendarHeight) -> Void in
-            // In animation block you can add your own animation. To adapat UI to new calendar height you can use calendarHeight param
-            self.calendarViewHeight.constant = calendarHeight
-            self.view.layoutIfNeeded()
-            }, completion: nil)
-    }
+    @IBOutlet weak var checkInButton: UIButton!
     
-    let daysRange = 365
-   
+    @IBAction func checkInButtonPress(sender: AnyObject) {
+        self.thisLocation = locationLbel.text!
+        var parameters = ["username":"\(self.username)", "crn": self.thisCrn, "routerLocation": self.thisLocation]
+        parameters = ["routerLocation": self.thisLocation, "crn": self.thisCrn, "username":"\(self.username)"]
+        var choochie = ["crn":self.thisCrn, "username":"\(self.username)"]
+        self.helpJson = choochie
+        print(parameters)
+        let request = NSMutableURLRequest(URL: NSURL(string:"http://52.41.202.206/api/checkin")!)
+        let session = NSURLSession.sharedSession()
+        request.HTTPMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(parameters, options: [])
+        //session.
+        let task = session.dataTaskWithRequest(request) { data, response, error in
+            guard data != nil else {
+                print("no data found: \(error)")
+                //alert, having problmes connecting to Attend-O server
+                return
+            }
+            do {
+                if let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+                    print("Response: \(json)")
+                    let swiftee = JSON(data: data!)
+                    print("JSON: \(swiftee)")
+                    if swiftee["err"].bool == false {
+                        self.newBool = true
+                    } else if swiftee["err"].bool == true {
+                        for i in 0...self.daysRange {
+                            let day = self.dateByIndex(i)
+                            if !day.isTypicallyWeekend() {
+                                var stringDate2 = "\(day)"
+                                stringDate2 = stringDate2.stringByPaddingToLength(10, withString: stringDate2, startingAtIndex: 0)
+                                var todaysDate:NSDate = NSDate()
+                                var dateFormatter:NSDateFormatter = NSDateFormatter()
+                                //dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+                                dateFormatter.dateFormat = "yyyy-MM-dd"
+                                var DateInFormat:String = dateFormatter.stringFromDate(todaysDate)
+                                if DateInFormat == stringDate2 {
+                                    
+                                    
+                                    let day = self.dateByIndex(i)
+                                    var color = UIColor(netHex: 0xf6980b)
+                                    let dayColor = DayColors(backgroundColor: color, textColor: UIColor.whiteColor())
+                                    self.dayColors[day] = dayColor
+                                }
+                            }
+                        }
+
+                    }
+                }
+            } catch let parseError {
+                print(parseError)// Log the error thrown by `JSONObjectWithData`
+                let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print("Error could not parse JSON: '\(jsonStr)'")
+        }
+    }
+    //let fjfj = segue.destinationViewController.
+    updateCal()
+    task.resume()
+        
+
+        }
 
 
     /*
@@ -345,6 +564,15 @@ class studentCalViewController: UIViewController, MJCalendarViewDelegate {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
+         "MRDC 2404"
+         
+         var locations = [
+         "Klaus 1456",
+         "Skiles 368",
+         "Howey L2",
+         "U A Whitaker Biomedical Engr 1103",
+         "Instruction Center 219"
+         ];
     */
 
 }

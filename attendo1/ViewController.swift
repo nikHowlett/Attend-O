@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     var classes1: [Class]?
     var sections1: [String]?
     var Jigalo: [String]?
+    var crnRay: [String] = ["82334"]
     var bitchtwoni: [String] = []
     @IBOutlet weak var ssi: UISwitch!
     required init(coder aDecoder: NSCoder) {
@@ -402,14 +403,24 @@ class ViewController: UIViewController {
                         if msgF == true {
                             if let courseArray = swiftee["courses"].array {
                                 var beachie: [String] = []
+                                var tootie: [String] = []
                                 for (var k = 0; k < courseArray.count; k++) {
                                     beachie.append(courseArray[k]["course"].string!)
+                                    //tootie.append(courseArray[k]["crn"].double)
+                                    var johnson = courseArray[k]["crn"].double!
+                                    
+                                    var myIntValue = Int(johnson)
+                                    
+                                    tootie.append("\(myIntValue)")
                                 }
                                 if beachie.count > 0 {
                                     self.bitchtwoni = beachie
+                                    self.crnRay = tootie
                                 }
                                 print("below supposed to be class strings")
                                 print(self.bitchtwoni)
+                                print("below supposed to be crn strings")
+                                print(self.crnRay)
                             }
                             
                             
@@ -449,6 +460,7 @@ class ViewController: UIViewController {
             choo.classes2 = self.bitchtwoni
             tableVC.username = self.usernametextfield.text!
             tableVC.classes2 = self.bitchtwoni
+            tableVC.cRNs = self.crnRay
             //if let classes = segue.destinationViewController as? newStudentViewController {
             //classes.classes2 = classes1
             //}
