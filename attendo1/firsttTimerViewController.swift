@@ -146,8 +146,9 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
                     let swiftee = JSON(data: data!)
                     print("JSON: \(swiftee)")
                     print("JSON[courses] : \(swiftee["courses"])")
-                    print("JSON: \(swiftee)")
-                    print("JSON[courses][0][section] : \(swiftee["courses"][0]["section"])")
+                    print("JSON[courses][0][sections] : \(swiftee["courses"][0]["sections"])")
+                    print("JSON[courses][0][sections] : \(swiftee["courses"][0]["sections"])")
+                    print("JSON[courses][sections][0][section] : \(swiftee["courses"]["sections"][0]["section"])")
                     if let userName = swiftee[0]["userExists"].string {
                         let userbool = swiftee[0]["userExists"].bool
                         //print("userExists: \(userName)")
@@ -161,12 +162,12 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
                         print("courseBithces")
                         self.sectionPerClass = []
                         print(courseBithces)
-                        for (var k = 0; k < courseBithces.count; k++) {
-                            print(courseBithces[k]["section"])
-                            self.sectionPerClass.append("\(courseBithces[k]["section"])")
+                        for (var k = 0; k < courseBithces[0]["sections"].count; k++) {
+                            //print(courseBithces[k]["section"])
+                            print(courseBithces[0]["sections"][k]["section"])
+                            //self.sectionPerClass.append("\(courseBithces[k]["section"])")
+                            self.sectionPerClass.append("\(courseBithces[0]["sections"][k]["section"])")
                         }
-                        
-                        
                     }
                     if (self.sectionPerClass.count > 0) {
                         self.showPickerInActionSheet()
