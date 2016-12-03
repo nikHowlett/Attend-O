@@ -25,7 +25,8 @@ class studentCalViewController: UIViewController, MJCalendarViewDelegate {
     var helpJson: [String : String]?
     var newBool = false
     var thisLocation = "Klaus 853"
-    var locations: [String] = ["Coll of Computing 101", "MRDC 2404"]
+    var i = 0;
+    var locations: [String] = ["Coll of Computing 101", "MRDC 2404", "Clough Undergraduate Commons 152", "U A Whitaker Biomedical Engr 1103", "Klaus 1443"]
     let daysRange = 365
     var username: String = "San Juan"
     @IBOutlet weak var calendarViewHeight: NSLayoutConstraint!
@@ -34,11 +35,15 @@ class studentCalViewController: UIViewController, MJCalendarViewDelegate {
     @IBOutlet weak var locationLbel: UILabel!
     
     @IBAction func rotateLocation(sender: AnyObject) {
-        if locationLbel.text != "MRDC 2404" {
-            locationLbel.text = locations[1]
-        } else {
-            locationLbel.text = locations[0]
+        //if locationLbel.text != "MRDC 2404" {
+            locationLbel.text = locations[i]
+        i = i + 1
+        if i > (locations.count - 1) {
+            i = 0
         }
+        //} else {
+          //  locationLbel.text = locations[0]
+        //}
     }
     
     func animateToPeriod(period: MJConfiguration.PeriodType) {

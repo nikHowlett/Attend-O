@@ -56,6 +56,7 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
             }
             welcomeString.text! = "Welcome \(username)"
         }
+        
         // Do any additional setup after loading the view.
     }
 
@@ -278,7 +279,7 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
                     print("Error could not parse JSON: '\(jsonStr)'")
                 }
             }*/
-            tableVC.classes2 = self.bitchtwoni!
+            //tableVC.classes2 = self.bitchtwoni!
             //task.resume()
             tableVC.username = username
             //let svc = segue.destinationViewController as! studentCalViewController;
@@ -351,13 +352,18 @@ class firsttTimerViewController: UIViewController, UITableViewDelegate, UITableV
                                         self.cRNs.append("\(courseBithces[0]["sections"][k]["crn"])")
                                         print("appending: \(courseBithces[0]["sections"][k]["crn"])")
                                         //print("with corresponding section\(courseBithces[k]["section"].string!)")
+                                        
                                         print("printing crns")
                                         print(self.cRNs)
                                     }
                                 }
+                                
                             }
+                            self.cRNs.append("90726")
                         }
+                        
                         if (cC == self.classes2?.count) {
+                            
                             self.bitchSlap()
                         }
                     } else {
