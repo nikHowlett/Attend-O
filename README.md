@@ -1,9 +1,9 @@
 # Attend-O
 
-This repository contains all of the source code (with the exception of the database connection configuration) for the back-end and web front-end of the Attend-O automated attendance solution.
+This repository contains all of the source code (with the exception of necessary dependency installs) for the iPhone application portion of the Attend-O automated attendance solution.
 
 ##Release Notes
-Current Release: 0.3
+Current Release: 0.4
 
 ###Software Features
 * Front-facing REST API
@@ -45,38 +45,41 @@ Current Release: 0.3
 * Added flexiblity to Tsquare label parsing through additional character lookup
 
 ###Know Bugs and Defects
-* Calendar view on web client removes attendance records from view when first loaded and switching months
-* Statistics view is not reactive to changing browser sizes
+* Difficulty parsing classes with irregular titles, was fixed in previous release but was over-written in github merge conflict
+* First check on correct class returns not attended, but second works
+* Classes view needs refresh to load classes as of now
 * Location Data is not available from RNOC yet, so mock data is being utilized
 * Need for token-based authentication system to validate requests and the information they query
-* Need for CAS login and authentication for web-client
 
 ##Install Guide
 ###Prerequisites
-* Node Package Manager (NPM)
-* NodeJS
-* Database Configuration File (please email: mitchell.a.webster@gmail.com)
+* Xcode 7.3
+* Swift command line tools
+* CocoaPods or similar package depency installer
+* Nik Howlett Development Team Profile Key (please email: nikhowlett@gmail.com)
 
-###Dependent Libraries (See package.json)
-* Node Standard Libraries: 
-* Async
-* Body-Parser
-* Mongodb
-* Request
-* Time
-* Promise
+###Dependent Libraries (See Podfile)
+* Pods: 
+* MJCalendar
+* HexColors
+* Ji
+* NSDate-Escort
+* Alamofire
+* SwiftHTTP
+* Kanna
+* SwiftyJSON
 
 ###Download, Setup, and Run Instructions
 * Developers
  * Clone this repository
- * Open a command window and navigate to the main folder (containing server.js), then run "npm install"
- * Now run "node server", and the server will exist on localhost:8080
+ * Open a command window and navigate to the main folder (containing Podfile), then run "pod install"
+ * Now open "attendo1.xcworkspace", set the scheme (top-left, to the right of Stop/Play buttons) to attendo1, and deploy to either simulator or iOS device.
 * Users
- * This project currently runs on a private IP while it is currently still in development (please email: mitchell.a.webster@gmail.com for more information)
+ * In the future, download from approrpraite App Store
 
 ###Troubleshooting
 * Installation Issues
- * Ensure that both npm and nodeJS are properly installed on your machine
+ * Ensure that pods are correctly installed, and that you have replaced missing files (will need a few networking files from me for security reasons, nikhowlett@gmail.com)
  * Try running "npm install" with administrative priveledges
 * Running "node server" yields a MongoDB exception and none of the requests are working properly...
  * This is most likely because you do not have a copy of the database configuration file, please send an email to the address stated above.
