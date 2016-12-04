@@ -6,6 +6,13 @@ This repository contains all of the source code (with the exception of necessary
 Current Release: 0.4
 
 ###Software Features
+* iOS app, currently only supporting student features, but to support teacher side before 1.0
+* Allows students to use existing CAS login system from Georgia Tech to automatically register attendance
+* Provides a section set-up, signing up students for approrpriate classes
+* Provides a calendar interface for students to view previous attendance, as well as the ability to dispute events.
+
+
+###Per page features:
 * Login 
  * Use Georgia Tech CAS system to log into Attend-O
  * Alerts if wrong password
@@ -20,43 +27,10 @@ Current Release: 0.4
 * Calendar View
  * Ability to check into class by pressing Check In
  * Ability to chance location (Waiting to work on RNOC location API)
-* Front-facing REST API
- * Courses - retrieves a list of the user's (instructor or student) courses
- * CoursePrompt - takes TSquare Labels and dynamically finds section information while also caching course objects
- * StudentSetup - creates a student in the Attend-O system
- * Check-In - validates a students location/request time for a given class and records their attendance
- * AttendanceData - retrieves all of the attendance records for a given student (Queryable by class)
- * mock/locationData - method for retrieving location (should be replaced by RNOC location API)
- * InstructorSetup - creates an instructor in the Attend-O System
- * Summary - retrieves a summary of the attendance records for a given course
- * CreateRequest - create a change of attendance request
- * ViewRequests - get all of the change of attendance requests for a given user
- * RemoveRequest - delete a given change of attendance request
- * AcceptRequest - accept a change of attendance request
-* Attend-O Web Client
- * Login
- * Student Setup and Dynamic Course Selection
- * Student Course View
- * Student Attendance View, Check-In, and Request Creation
- * Instructor Course View and User Selection
- * Instructor User Attendance Editor
-* Promise-based Utility System
- * Term Selection
- * Object Validation
- * Date/Timezone Operations
- * Course Creation and Storage
- * Course Querying
- * User Querying and Permissions Validation
+
  
 ###Bug Fixes from last release
-* Attendance editor automatically updates in calendar view
-* Course Object Retrieval hits cache before parsing Coursesat.tech
-* Permission Validation for users and instructors
-* Timezone storage issue for attendance records
-* Implemented promise architecture to remove several layered nested callbacks
-* Fixed Date Validation Defect for Check-In
-* Implemented a try-catch system around Tsquare label parsing for error handling
-* Added flexiblity to Tsquare label parsing through additional character lookup
+* Fixed transition from first time registration to class
 
 ###Know Bugs and Defects
 * Difficulty parsing classes with irregular titles, was fixed in previous release but was over-written in github merge conflict
