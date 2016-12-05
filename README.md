@@ -34,8 +34,9 @@ Current Release: 0.4
 ###Bug Fixes from last release
 * Fixed transition from first time registration to class
 
-###Know Bugs and Defects
+###Known Bugs and Defects
 * Difficulty parsing classes with irregular titles, was fixed in previous release but was over-written in github merge conflict
+* Pressing login button twice will cause login not to work
 * First check on correct class returns not attended, but second works
 * Classes view needs refresh to load classes as of now
 * Location Data is not available from RNOC yet, so mock data is being utilized
