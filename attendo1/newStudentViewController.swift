@@ -12,12 +12,12 @@ import SwiftyJSON
 class newStudentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
-    @IBAction func fdf(sender: AnyObject) {
+    @IBAction func refreshPage(sender: AnyObject) {
         classTable.reloadData()
         print("classes2")
         print(classes2)
-        print("bitchtwoni")
-        print(bitchtwoni)
+        print("formattedClasses")
+        print(formattedClasses)
         print("username")
         print(username)
         welcomeString.text! = "Welcome \(username)"
@@ -26,11 +26,11 @@ class newStudentViewController: UIViewController, UITableViewDelegate, UITableVi
     var groups: [String] = ["A1", "F3", "B2"]
     var cRNs: [String] = ["12345" , "22345", "32345"]
     
-    var theClass = "CS 1332"
-    var theCRN = "82335"
-    var classes2: [String] = []
-    var bitchtwoni: [String] = []
-    var username: String = "George P. Burdell"
+    var theClass = "CS 1332" //class to send to next screen
+    var theCRN = "82335" //crn to send to next screen for API call
+    var classes2: [String] = [] //classes only titles pretty format
+    var formattedClasses: [String] = [] //API format slightly different
+    var username: String = "George P. Burdell" //placeholder for kicks
     
     @IBOutlet weak var welcomeString: UILabel!
     
@@ -42,10 +42,10 @@ class newStudentViewController: UIViewController, UITableViewDelegate, UITableVi
         //var oldNav = parentViewController as! UINavigationController
         //oldNav.p
         //var olDpoo = oldNav.parentViewController as! ViewController
-        //classes2 = olDpoo.bitchtwoni
+        //classes2 = olDpoo.formattedClasses
         //username = olDpoo.usernametextfield.text!
-        self.wahooni()
-        self.classes2 = self.bitchtwoni
+        self.pullCourses()
+        self.classes2 = self.formattedClasses
         self.classTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "ClassCell")
         self.title = "Select a Class"
         print(classes2)
@@ -85,12 +85,14 @@ class newStudentViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         theClass = items[indexPath.row]
         theCRN = cRNs[indexPath.row]
+        //get ready to send approrpriate data to next page!
         self.performSegueWithIdentifier("segueTest", sender: self)
     }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "segueTest") {
+            //sets variables in calendar page
             let svc = segue.destinationViewController as! studentCalViewController;
             svc.username = self.username
             svc.toPass = theClass
@@ -98,7 +100,8 @@ class newStudentViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    func wahooni() {
+    func pullCourses() {
+        //pulls courses from attend-O DB
         var parameters = ["username":"\(username)"]
         print(parameters)
         let request = NSMutableURLRequest(URL: NSURL(string:"http://52.41.202.206/api/mycourses")!)
@@ -136,13 +139,13 @@ class newStudentViewController: UIViewController, UITableViewDelegate, UITableVi
                                 }
                                 if beachie.count > 0 {
                                     self.classes2 = beachie
-                                    self.bitchtwoni = beachie
+                                    self.formattedClasses = beachie
                                     self.items = beachie
                                     self.cRNs = tootie
                                 }
                                 print("below supposed to be class strings")
-                                //classes2 = bitchtwoni
-                                print(self.bitchtwoni)
+                                //classes2 = formattedClasses
+                                print(self.formattedClasses)
                                 print("below supposed to be crn strings")
                                 print(self.cRNs)
 
