@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UIKit
 import CoreData
 import QuartzCore
 import SwiftyJSON
@@ -21,11 +20,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var usernametextfield: UITextField!
     
     @IBOutlet weak var passwordtextfield: UITextField!
-    var classes1: [Class]?
-    var sections1: [String]?
-    var Jigalo: [String]?
-    var crnRay: [String] = ["82334"]
-    var bitchtwoni: [String] = []
+    var classes1: [Class]? //holds class objects
+    var sections1: [String]? //holds section strings
+    var coursesArray: [String]? //initial load for classes
+    var crnRay: [String] = ["82334"] //holds only CRN strings
+    var classesArray: [String] = [] //holds class string titles only
     @IBOutlet weak var ssi: UISwitch!
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -35,6 +34,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         print("console output: true")
         // Do any additional setup after loading the view, typically from a nib.
+        //able to click away keyboard
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
     }
@@ -45,6 +45,11 @@ class ViewController: UIViewController {
     }
     
     func newCasLogin(newLogin newLogin: Bool) {
+        //newCas login will simply check with CAS if you exist, 
+        //log you in, and then it calls another function,
+        //presentClassesView, that decides what to do from there
+        
+        //alerts on password, server down
         print("function called")
         //print(TSAuthenticatedReader2.getAllClasses())
         //attempt to authenticate
@@ -54,7 +59,7 @@ class ViewController: UIViewController {
                 //successful login
                 if let reader = reader {
                     //let loginCount = 29//
-                    print("this shit worked")
+                    print("this worked")
                     
                     //NSUserDefaults.standardUserDefaults().integerForKey(TSLoginCountKey)
                     /*NSUserDefaults.standardUserDefaults().setInteger(loginCount + 1, forKey: TSLoginCountKey)*/
@@ -82,6 +87,8 @@ class ViewController: UIViewController {
         })
     }
     @IBAction func testMyCourses(sender: AnyObject) {
+        //this function was used to learn format of JSON, APIS, 
+        //and gain familiarty with multi-threading in Swift
         var parameters = ["Username":"Admin", "Password":"123","DeviceId":"87878"] as Dictionary<String, String>
         parameters = ["username":"\(usernametextfield.text!)"]
         let request = NSMutableURLRequest(URL: NSURL(string:"http://52.41.202.206/api/mycourses")!)
@@ -119,6 +126,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func printTest(sender: AnyObject) {
+        //also used in testing
+        // I am keeping this old code for reference
         /*var classes: [Class] = []
          var loadAttempt = 0
          while classes.count == 0 && loadAttempt < 4 && !reader.actuallyHasNoClasses {
@@ -155,9 +164,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func Login(sender: AnyObject) {
+        //this is called upon the login button being pressed
         print("login button pressed")
         var parameters = ["Username":"Admin", "Password":"123","DeviceId":"87878"] as Dictionary<String, String>
+        //set parameters for login call
         parameters = ["username":"\(usernametextfield.text!)"]
+        //my courses api will check if the user exists in our system
         let request = NSMutableURLRequest(URL: NSURL(string:"http://52.41.202.206/api/mycourses")!)
         
         let session = NSURLSession.sharedSession()
@@ -186,11 +198,12 @@ class ViewController: UIViewController {
                     print("JSON: \(swiftee)")
                     print("JSON[userExists] : \(swiftee["userExists"])")
                     if swiftee["userExists"] {
-                        self.wahooni()
-                        if self.ssi.on {
+                        self.userExistsTrueInDB()
+                        if self.ssi.on { //for demo purposes allow old CAS LOGIN
                         self.performSegueWithIdentifier("newStudent", sender: self)
                         } else {
                             self.newCasLogin(newLogin: true)
+                            //new Cas login will pull courses from T-Square
                         }
                     } else {
                         self.newCasLogin(newLogin: true)
@@ -260,6 +273,7 @@ class ViewController: UIViewController {
     
     
     func presentClassesView(reader: TSReader) {
+        //pull classes from T-square and populate setup
         //tapRecognizer.enabled = false
         var classes: [Class] = []
         var sections: [String] = []
@@ -332,7 +346,7 @@ class ViewController: UIViewController {
             print("below new sections")
             print(sections1!)
             var coursePromter = reader.getCoursePromt(sections1!)
-            Jigalo = coursePromter
+            coursesArray = coursePromter
             //self.prepareForS)
             if classes.count == 0 {
                 reader.checkIfHasNoClasses()
@@ -376,7 +390,8 @@ class ViewController: UIViewController {
         /*classesViewController.loadAnnouncements(reloadClasses: false, withInlineActivityIndicator: true)*/
     }
     
-    func wahooni() {
+    func userExistsTrueInDB() {
+        //pull classes instead from attend-o DB
         var parameters = ["username":"\(usernametextfield.text!)"]
         print(parameters)
         let request = NSMutableURLRequest(URL: NSURL(string:"http://52.41.202.206/api/mycourses")!)
@@ -414,11 +429,11 @@ class ViewController: UIViewController {
                                     tootie.append("\(myIntValue)")
                                 }
                                 if beachie.count > 0 {
-                                    self.bitchtwoni = beachie
+                                    self.classesArray = beachie
                                     self.crnRay = tootie
                                 }
                                 print("below supposed to be class strings")
-                                print(self.bitchtwoni)
+                                print(self.classesArray)
                                 print("below supposed to be crn strings")
                                 print(self.crnRay)
                             }
@@ -449,6 +464,7 @@ class ViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //send approrpriate variables to next page!
         if segue.identifier == "newStudent" {
             
             let navVC = segue.destinationViewController as! UINavigationController
@@ -457,9 +473,9 @@ class ViewController: UIViewController {
             
             //tableVC.classes2 = classes1
             choo.username = self.usernametextfield.text!
-            choo.classes2 = self.bitchtwoni
+            choo.classes2 = self.classesArray
             tableVC.username = self.usernametextfield.text!
-            tableVC.classes2 = self.bitchtwoni
+            tableVC.classes2 = self.classesArray
             tableVC.cRNs = self.crnRay
             //if let classes = segue.destinationViewController as? newStudentViewController {
             //classes.classes2 = classes1
@@ -476,7 +492,7 @@ class ViewController: UIViewController {
             tableVC.classes2 = classes1
             tableVC.sections2 = sections1
             tableVC.username = usernametextfield.text!
-            tableVC.coursePromtStringArray = Jigalo
+            tableVC.coursePromtStringArray = coursesArray
             
         }
         
@@ -493,6 +509,7 @@ class ViewController: UIViewController {
     }
     
     let GTSubjectPrefixes: [String] = [
+        //we iterate through this array to find out which classes are not tech related such as team page JDD 66 - Team Python Snake
         "ACCT",
         "AE",
         "AS",
