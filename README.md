@@ -71,11 +71,3 @@ Current Release: 0.4
 ###Troubleshooting
 * Installation Issues
  * Ensure that pods are correctly installed, and that you have replaced missing files (will need a few networking files from me for security reasons, nikhowlett@gmail.com)
- * Try running "npm install" with administrative priveledges
-* Running "node server" yields a MongoDB exception and none of the requests are working properly...
- * This is most likely because you do not have a copy of the database configuration file, please send an email to the address stated above.
-* How do I know if the server is running
- * The command window hanging after "node server" is a good first indication
- * Then open a browser and type: localhost:8080/api/mock/locationData , this should return a mock location string, if you get this then the application is working properly
-* How do I find the web client
- * Open a browser and type localhost:8080, the angular module should direct your browser to the login screen if the server is running
